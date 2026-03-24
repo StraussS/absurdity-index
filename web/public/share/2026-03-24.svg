@@ -14,7 +14,7 @@
 
   <rect x="68" y="530" width="260" height="110" rx="30" fill="#111827" />
   <text x="96" y="572" font-size="24" font-weight="700" fill="#D1FAE5">今日指数</text>
-  <text x="96" y="626" font-size="64" font-weight="900" fill="#6EE7B7">91</text>
+  <text x="96" y="626" font-size="64" font-weight="900" fill="#6EE7B7">90</text>
 
   <rect x="352" y="530" width="628" height="110" rx="30" fill="rgba(255,255,255,0.88)" />
   <text x="386" y="572" font-size="22" font-weight="800" fill="#374151">高危荒谬</text>
@@ -40,26 +40,26 @@
 
         <rect x="56" y="926" width="968" height="68" rx="22" fill="rgba(255,255,255,0.86)" />
         <text x="86" y="950" font-size="17" font-weight="800" fill="#F97316">TOP 2</text>
-        <text x="86" y="974" font-size="24" font-weight="800" fill="#111827">自称日本自卫队现役官员强闯中国驻日本大使馆…</text>
-        <text x="986" y="972" text-anchor="end" font-size="28" font-weight="900" fill="#111827">92</text>
+        <text x="86" y="974" font-size="24" font-weight="800" fill="#111827">张雪峰去世，公司发布讣告</text>
+        <text x="986" y="972" text-anchor="end" font-size="28" font-weight="900" fill="#111827">97</text>
       
 
         <rect x="56" y="1014" width="968" height="68" rx="22" fill="rgba(255,255,255,0.86)" />
         <text x="86" y="1038" font-size="17" font-weight="800" fill="#F97316">TOP 3</text>
-        <text x="86" y="1062" font-size="24" font-weight="800" fill="#111827">中方回应日本人强闯中使馆威胁杀人</text>
+        <text x="86" y="1062" font-size="24" font-weight="800" fill="#111827">自称日本自卫队现役官员强闯中国驻日本大使馆…</text>
         <text x="986" y="1060" text-anchor="end" font-size="28" font-weight="900" fill="#111827">92</text>
       
 
         <rect x="56" y="1102" width="968" height="68" rx="22" fill="rgba(255,255,255,0.86)" />
         <text x="86" y="1126" font-size="17" font-weight="800" fill="#F97316">TOP 4</text>
-        <text x="86" y="1150" font-size="24" font-weight="800" fill="#111827">LiteLLM Python packag…</text>
-        <text x="986" y="1148" text-anchor="end" font-size="28" font-weight="900" fill="#111827">88</text>
+        <text x="86" y="1150" font-size="24" font-weight="800" fill="#111827">中方回应日本人强闯中使馆威胁杀人</text>
+        <text x="986" y="1148" text-anchor="end" font-size="28" font-weight="900" fill="#111827">92</text>
       
 
         <rect x="56" y="1190" width="968" height="68" rx="22" fill="rgba(255,255,255,0.86)" />
         <text x="86" y="1214" font-size="17" font-weight="800" fill="#F97316">TOP 5</text>
-        <text x="86" y="1238" font-size="24" font-weight="800" fill="#111827">日媒：擅闯中国大使馆的男子持有自卫官证件，…</text>
-        <text x="986" y="1236" text-anchor="end" font-size="28" font-weight="900" fill="#111827">86</text>
+        <text x="86" y="1238" font-size="24" font-weight="800" fill="#111827">4岁女童就诊177次患者是母亲</text>
+        <text x="986" y="1236" text-anchor="end" font-size="28" font-weight="900" fill="#111827">91</text>
       
 
   <text x="68" y="1372" font-size="22" font-weight="700" fill="#6B7280">这标题先把人吓一跳</text>
