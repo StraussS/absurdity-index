@@ -19,6 +19,18 @@ const HN_TOP_URL = "https://hacker-news.firebaseio.com/v0/topstories.json";
 const HN_ITEM_URL = (id: number) => `https://hacker-news.firebaseio.com/v0/item/${id}.json`;
 const RSS_SOURCES = [
   {
+    name: "Google News 中文",
+    url: "https://news.google.com/rss?hl=zh-CN&gl=CN&ceid=CN:zh-Hans",
+  },
+  {
+    name: "IT之家",
+    url: "https://www.ithome.com/rss/",
+  },
+  {
+    name: "36氪",
+    url: "https://36kr.com/feed",
+  },
+  {
     name: "Google News Tech",
     url: "https://news.google.com/rss/search?q=AI%20OR%20technology%20OR%20platform&hl=en-US&gl=US&ceid=US:en",
   },
@@ -27,6 +39,8 @@ const RSS_SOURCES = [
     url: "https://news.google.com/rss/search?q=weird%20OR%20bizarre%20OR%20surprising&hl=en-US&gl=US&ceid=US:en",
   },
 ];
+
+const BAIDU_REALTIME_URL = "https://top.baidu.com/board?tab=realtime";
 
 function stripTags(input: string) {
   return input
@@ -39,21 +53,49 @@ function stripTags(input: string) {
 }
 
 function parseRssItems(xml: string, source: string): RssItem[] {
-  const items = Array.from(xml.matchAll(/<item>([\s\S]*?)<\/item>/g));
-  return items
-    .map((match) => {
-      const body = match[1];
-      const title = body.match(/<title>([\s\S]*?)<\/title>/)?.[1] ?? "";
-      const link = body.match(/<link>([\s\S]*?)<\/link>/)?.[1] ?? "";
-      const pubDate = body.match(/<pubDate>([\s\S]*?)<\/pubDate>/)?.[1] ?? "";
+  const itemMatches = Array.from(xml.matchAll(/<item>([\s\S]*?)<\/item>/g));
+  const entryMatches = Array.from(xml.matchAll(/<entry>([\s\S]*?)<\/entry>/g));
+  const blocks = itemMatches.length > 0 ? itemMatches.map((m) => m[1]) : entryMatches.map((m) => m[1]);
+
+  return blocks
+    .map((body) => {
+      const title = body.match(/<title[^>]*>([\s\S]*?)<\/title>/)?.[1] ?? "";
+      const itemLink = body.match(/<link>([\s\S]*?)<\/link>/)?.[1] ?? "";
+      const atomLink = body.match(/<link[^>]*href=["']([^"']+)["'][^>]*\/?>(?:<\/link>)?/i)?.[1] ?? "";
+      const pubDate = body.match(/<pubDate>([\s\S]*?)<\/pubDate>/)?.[1] ?? body.match(/<updated>([\s\S]*?)<\/updated>/)?.[1] ?? "";
       return {
         title: stripTags(title),
-        link: stripTags(link),
+        link: stripTags(itemLink || atomLink),
         pubDate: stripTags(pubDate),
         source,
       };
     })
     .filter((item) => item.title && item.link);
+}
+
+function parseBaiduHotItems(html: string): RssItem[] {
+  const marker = '<!--s-data:';
+  const start = html.indexOf(marker);
+  if (start === -1) return [];
+  const end = html.indexOf('-->', start);
+  if (end === -1) return [];
+
+  const payload = html.slice(start + marker.length, end);
+  try {
+    const parsed = JSON.parse(payload) as {
+      data?: { cards?: Array<{ component?: string; content?: Array<{ word?: string; url?: string }> }> };
+    };
+    const card = parsed.data?.cards?.find((item) => item.component === 'hotList');
+    return (card?.content ?? [])
+      .filter((item) => item.word && item.url)
+      .map((item) => ({
+        title: item.word as string,
+        link: item.url as string,
+        source: '百度热搜',
+      }));
+  } catch {
+    return [];
+  }
 }
 
 function formatTime(input?: string | number) {
@@ -134,10 +176,34 @@ async function fetchRssSourceItems(limitPerFeed = 4): Promise<AbsurdityItem[]> {
   });
 }
 
+async function fetchBaiduHotItems(limit = 8): Promise<AbsurdityItem[]> {
+  const html = await fetchText(BAIDU_REALTIME_URL);
+  const items = parseBaiduHotItems(html).slice(0, limit);
+  return items.map((item, index) => {
+    const scored = scoreTitle(item.title);
+    return {
+      id: `baidu-${index}-${Buffer.from(item.title).toString("base64").slice(0, 8)}`,
+      title: item.title,
+      source: item.source,
+      time: formatTime(),
+      category: scored.categories,
+      score: scored.score,
+      comment: scored.comment,
+      reason: scored.reason,
+      dimensions: scored.dimensions,
+      url: item.link,
+    } satisfies AbsurdityItem;
+  });
+}
+
 export async function getTodayData(): Promise<DailyAbsurdity> {
   try {
-    const [hnItems, rssItems] = await Promise.all([fetchHackerNewsItems(6), fetchRssSourceItems(3)]);
-    const merged = [...hnItems, ...rssItems]
+    const [hnItems, rssItems, baiduItems] = await Promise.all([
+      fetchHackerNewsItems(6),
+      fetchRssSourceItems(3),
+      fetchBaiduHotItems(8),
+    ]);
+    const merged = [...baiduItems, ...rssItems, ...hnItems]
       .sort((a, b) => b.score - a.score)
       .slice(0, 5);
 

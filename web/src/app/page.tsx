@@ -95,7 +95,7 @@ export default async function Home() {
           <div className="rounded-[22px] border border-white/8 bg-white/4 p-6">
             <div className="mb-3 text-xs uppercase tracking-[0.22em] text-slate-400">最荒谬领域</div>
             <div className="mb-2 text-4xl font-black">{today.keywords.slice(0, 2).join(" / ") || "魔幻现实"}</div>
-            <div className="text-sm leading-6 text-slate-300">当前数据来自 Hacker News 与 Google News RSS 聚合。</div>
+            <div className="text-sm leading-6 text-slate-300">当前数据来自 百度热搜、IT之家、36氪、Google News RSS 与 Hacker News 聚合。</div>
           </div>
           <div className="rounded-[22px] border border-white/8 bg-white/4 p-6">
             <div className="mb-3 text-xs uppercase tracking-[0.22em] text-slate-400">今日关键词</div>
@@ -113,7 +113,7 @@ export default async function Home() {
           <div className="mb-5 flex flex-col gap-2 md:flex-row md:items-end md:justify-between">
             <div>
               <h2 className="text-3xl font-bold tracking-[-0.03em]">今天最离谱的 5 件事</h2>
-              <p className="mt-2 text-slate-400">当前为真实数据源聚合 + 规则打分，后面可继续换成 AI 精评分。</p>
+              <p className="mt-2 text-slate-400">当前为中文热搜 + 科技资讯聚合 + 规则打分，后面可继续换成 AI 精评分。</p>
             </div>
           </div>
           <div className="grid gap-4">
@@ -168,7 +168,7 @@ export default async function Home() {
         </section>
 
         <footer className="px-1 pt-10 pb-4 text-center text-sm leading-7 text-slate-400">
-          当前已接入真实来源：Hacker News + Google News RSS。<br />
+          当前已接入真实来源：百度热搜 + IT之家 + 36氪 + Google News RSS + Hacker News。<br />
           下一步最值得做的是：接 AI 精评分、持久化历史数据、生成分享图。
         </footer>
       </div>
