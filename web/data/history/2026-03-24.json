@@ -1,6 +1,6 @@
 {
   "date": "2026-03-24",
-  "daily_index": 88,
+  "daily_index": 84,
   "level": "高危荒谬",
   "summary": "今天建议少刷热搜，多喝水，保护理智。",
   "keywords": [
@@ -143,8 +143,87 @@
       },
       "url": "https://www.toutiao.com/trending/7620671150137593382/",
       "scoring_mode": "cache"
+    },
+    {
+      "id": "sspai-4-5LuK5aSc",
+      "title": "今夜，大模型从世界消散",
+      "source": "少数派",
+      "sources": [
+        "少数派"
+      ],
+      "source_count": 1,
+      "time": "--:--",
+      "category": [
+        "技术终局想象",
+        "媒体标题夸张"
+      ],
+      "score": 84,
+      "comment": "标题像把互联网关机了",
+      "reason": "“今夜”“从世界消散”把一个技术话题写成了末日宣告，跨度太大，像在给现实按暂停键。若标题只是借势渲染，那它的荒谬主要不在内容，而在这种一上来就要清空世界的语气。",
+      "dimensions": {
+        "反常识": 78,
+        "黑色幽默": 72,
+        "系统性离谱": 69,
+        "传播戏剧性": 91,
+        "赛博浓度": 95
+      },
+      "url": "https://sspai.com/post/106939",
+      "scoring_mode": "cache"
+    },
+    {
+      "id": "thepaper-5-54m55pyX",
+      "title": "特朗普称已与伊朗对话，将暂停打击其能源设施5天",
+      "source": "澎湃新闻",
+      "sources": [
+        "澎湃新闻"
+      ],
+      "source_count": 1,
+      "time": "20:26",
+      "category": [
+        "地缘政治拉扯",
+        "口径变动"
+      ],
+      "score": 74,
+      "comment": "先打后谈，节奏比协议快",
+      "reason": "标题里同一件事同时出现“对话”和“暂停打击”，而且对象还是能源设施，说明冲突与谈判在同一时间轴上并行。信息本身不一定荒诞，但这种边打边谈的操作，让局势像在按暂停键，却又随时可能继续播放。",
+      "dimensions": {
+        "反常识": 78,
+        "黑色幽默": 61,
+        "系统性离谱": 69,
+        "传播戏剧性": 83,
+        "赛博浓度": 18
+      },
+      "url": "https://www.thepaper.cn/newsDetail_forward_32815385",
+      "scoring_mode": "cache"
+    },
+    {
+      "id": "rss-5-TGFmYXll",
+      "title": "Lafayette homicide victim identified, suspect in custody as bizarre Facebook post surfaces - ABC7 San Francisco",
+      "source": "Google News World",
+      "sources": [
+        "Google News World"
+      ],
+      "source_count": 1,
+      "time": "12:20",
+      "category": [
+        "社交媒体反噬",
+        "案件舆情反差",
+        "犯罪现场戏剧性"
+      ],
+      "score": 74,
+      "comment": "案子没完，帖子先出圈。",
+      "reason": "标题里一边是凶案确认、嫌疑人被控制，一边又冒出“离奇的Facebook帖文”，把严肃案件和社交媒体的即时围观硬拧在一起。离谱不在案情本身，而在它总能先被平台叙事抢走半个现场。",
+      "dimensions": {
+        "反常识": 68,
+        "黑色幽默": 72,
+        "系统性离谱": 61,
+        "传播戏剧性": 88,
+        "赛博浓度": 79
+      },
+      "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxOSW9fM2FMTjhXQzFpX01tY3IyWkJPZU1EOE1qSF9PZE0ybDJqX05IT3BuTzgxLVlaWlJBVWZfaklwODI4OFVZdmozUGZFa2xtYmpTSE9RaWtwVk1lMXlYaExXM1hYVWJ1QnFGQkw5RldCaFNtQTd0bzg3MVJ0aUQweWdiZW1QUWppQXU2STRDTmFzSlpTWjNjV3drZ2pIYzVEUFVab3VfVGQxeWhUX2FISFpmbTIyMXVZdjhj0gHAAUFVX3lxTE1zMV94ZHhnZ3hFTWRUeEctZ20zaGF6VmNOcWdIQmlUUnJXR0s1TmI1TnBGMkVaRGo1S1ZEWHF0aHhBU0xzYTM0NFk2a0swbk9oTUdNYWdBVFo3TlU1eVRIN0k3bE56RlZrZzVkQ2lNbThyeUNFUGNkUkZ0ZjN4ZjBYQm1lM2o0ZTJuaFdTb2dYRDQ5N0NjSXYydmUwQmhRNDVhbW9IZ2d3aHhHbm1hUkI5RmR3Ul9QWVd2Sm50Vm5sdw?oc=5",
+      "scoring_mode": "cache"
     }
   ],
-  "saved_at": "2026-03-24T11:41:57.229Z",
+  "saved_at": "2026-03-24T11:54:34.496Z",
   "share_image": "/share/2026-03-24.svg"
 }

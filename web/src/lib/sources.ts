@@ -23,7 +23,7 @@ export async function getTodayData(): Promise<DailyAbsurdity> {
 
     const deduped = dedupeAbsurdityItems(merged)
       .sort((a, b) => b.score - a.score)
-      .slice(0, 5);
+      .slice(0, 8);
 
     if (deduped.length === 0) {
       return fallbackToday as DailyAbsurdity;

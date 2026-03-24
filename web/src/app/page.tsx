@@ -76,8 +76,8 @@ export default async function Home() {
               用一个不太严肃但相当认真的指数，量化现实的抽象程度。
             </p>
             <div className="flex flex-wrap gap-3">
-              <a href="#top5" className="rounded-full border border-emerald-300/25 bg-emerald-300/8 px-5 py-3 text-sm font-semibold text-white transition hover:bg-emerald-300/12">
-                查看今日 TOP 5
+              <a href="#top8" className="rounded-full border border-emerald-300/25 bg-emerald-300/8 px-5 py-3 text-sm font-semibold text-white transition hover:bg-emerald-300/12">
+                查看今日 TOP 8
               </a>
               <a href="#trend" className="rounded-full border border-white/10 bg-white/4 px-5 py-3 text-sm font-semibold text-slate-200 transition hover:bg-white/8">
                 查看历史趋势
@@ -85,6 +85,9 @@ export default async function Home() {
               <Link href="/history" className="rounded-full border border-white/10 bg-white/4 px-5 py-3 text-sm font-semibold text-slate-200 transition hover:bg-white/8">
                 查看历史归档
               </Link>
+              <a href={`/share/${today.date}.svg`} target="_blank" rel="noreferrer" className="rounded-full border border-cyan-300/20 bg-cyan-300/10 px-5 py-3 text-sm font-semibold text-cyan-100 transition hover:bg-cyan-300/15">
+                查看今日分享图
+              </a>
             </div>
           </div>
 
@@ -123,10 +126,10 @@ export default async function Home() {
           </div>
         </section>
 
-        <section id="top5" className="mb-10">
+        <section id="top8" className="mb-10">
           <div className="mb-5 flex flex-col gap-2 md:flex-row md:items-end md:justify-between">
             <div>
-              <h2 className="text-3xl font-bold tracking-[-0.03em]">今天最离谱的 5 件事</h2>
+              <h2 className="text-3xl font-bold tracking-[-0.03em]">今天最离谱的 8 件事</h2>
               <p className="mt-2 text-slate-400">把今天最值得看的几件离谱事收拢在一起，省得你被满屏信息拖着跑。</p>
             </div>
           </div>
@@ -162,7 +165,7 @@ export default async function Home() {
           <div id="trend" className="rounded-[24px] border border-white/8 bg-white/4 p-6">
             <div className="mb-4">
               <h2 className="text-2xl font-bold tracking-[-0.03em]">过去 7 天，世界正常过吗？</h2>
-              <p className="mt-2 text-slate-400">当前趋势为根据今日榜单生成的占位走势，后面接数据库后可变成真实历史。</p>
+              <p className="mt-2 text-slate-400">这里展示最近 7 天已经保存下来的真实历史指数，用来看看世界到底有没有正常过。</p>
             </div>
             <div className="flex h-[240px] items-end gap-3 pt-3">
               {today.trend.map((value, index) => (
