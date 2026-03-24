@@ -182,8 +182,8 @@ export default async function Home() {
         </section>
 
         <footer className="px-1 pt-10 pb-4 text-center text-sm leading-7 text-slate-400">
-          当前已接入真实来源，并已支持源级开关与标题归一化去重：百度热搜 + IT之家 + 36氪 + 澎湃 + 华尔街见闻 + 今日头条 + 少数派 + 腾讯新闻 + Google News RSS + Hacker News；微博热搜支持通过 WEIBO_COOKIE 选配接入。<br />
-          下一步最值得做的是：接 AI 精评分、持久化历史数据、生成分享图。
+          有时候现实比虚构更会写黑色幽默。<br />
+          如果今天已经够抽象了，至少这里会帮你把它整理清楚。
         </footer>
       </div>
     </main>
