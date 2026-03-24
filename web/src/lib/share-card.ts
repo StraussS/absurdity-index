@@ -53,7 +53,7 @@ export async function generateShareCard(data: DailyAbsurdity) {
 
   const rankingSvg = top5
     .map((item, index) => {
-      const y = 884 + index * 88;
+      const y = 838 + index * 88;
       return `
         <rect x="56" y="${y}" width="968" height="68" rx="22" fill="rgba(255,255,255,0.86)" />
         <text x="86" y="${y + 24}" font-size="17" font-weight="800" fill="#F97316">TOP ${index + 1}</text>
@@ -67,8 +67,8 @@ export async function generateShareCard(data: DailyAbsurdity) {
     .map((keyword, index) => {
       const x = 68 + index * 168;
       return `
-        <rect x="${x}" y="772" rx="20" ry="20" width="138" height="42" fill="#111827" fill-opacity="0.08" />
-        <text x="${x + 18}" y="799" font-size="22" font-weight="700" fill="#374151">${escapeXml(clampText(keyword, 6))}</text>`;
+        <rect x="${x}" y="724" rx="20" ry="20" width="138" height="42" fill="#111827" fill-opacity="0.08" />
+        <text x="${x + 18}" y="751" font-size="22" font-weight="700" fill="#374151">${escapeXml(clampText(keyword, 6))}</text>`;
     })
     .join("\n");
 
@@ -83,21 +83,21 @@ export async function generateShareCard(data: DailyAbsurdity) {
   <text x="68" y="142" font-size="22" font-weight="700" fill="#FFE7D9">${escapeXml(data.date)}</text>
   <text x="68" y="204" font-size="72" font-weight="900" fill="#FFFFFF">TOP 5 离谱事件</text>
 
-  <rect x="44" y="254" width="992" height="500" rx="42" fill="#FFF8EE" />
+  <rect x="44" y="254" width="992" height="440" rx="42" fill="#FFF8EE" />
   <text x="68" y="276" font-size="20" font-weight="800" fill="#C2410C">今天最离谱</text>
   ${leadSvg}
 
-  <rect x="68" y="570" width="260" height="110" rx="30" fill="#111827" />
-  <text x="96" y="612" font-size="24" font-weight="700" fill="#D1FAE5">今日指数</text>
-  <text x="96" y="666" font-size="64" font-weight="900" fill="#6EE7B7">${data.daily_index}</text>
+  <rect x="68" y="530" width="260" height="110" rx="30" fill="#111827" />
+  <text x="96" y="572" font-size="24" font-weight="700" fill="#D1FAE5">今日指数</text>
+  <text x="96" y="626" font-size="64" font-weight="900" fill="#6EE7B7">${data.daily_index}</text>
 
-  <rect x="352" y="570" width="628" height="110" rx="30" fill="rgba(255,255,255,0.88)" />
-  <text x="386" y="612" font-size="22" font-weight="800" fill="#374151">${escapeXml(data.level)}</text>
-  <text x="386" y="658" font-size="26" font-weight="700" fill="#111827">${escapeXml(summary)}</text>
+  <rect x="352" y="530" width="628" height="110" rx="30" fill="rgba(255,255,255,0.88)" />
+  <text x="386" y="572" font-size="22" font-weight="800" fill="#374151">${escapeXml(data.level)}</text>
+  <text x="386" y="618" font-size="26" font-weight="700" fill="#111827">${escapeXml(summary)}</text>
 
   ${keywordSvg}
 
-  <text x="68" y="844" font-size="28" font-weight="900" fill="#111827">今天最值得看的 5 条</text>
+  <text x="68" y="804" font-size="28" font-weight="900" fill="#111827">今天最值得看的 5 条</text>
   ${rankingSvg}
 
   <text x="68" y="1372" font-size="22" font-weight="700" fill="#6B7280">${escapeXml(lead?.comment ? clampText(lead.comment, 18) : "现实有时比段子更会写段子")}</text>

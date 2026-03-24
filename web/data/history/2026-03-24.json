@@ -4,41 +4,43 @@
   "level": "高危荒谬",
   "summary": "今天建议少刷热搜，多喝水，保护理智。",
   "keywords": [
-    "身份反转",
-    "医疗异常",
-    "家庭失序",
-    "外交越界"
+    "标题疑似失实",
+    "名人讣闻误报",
+    "离谱标题",
+    "信息失真"
   ],
   "top_items": [
     {
-      "id": "toutiao-5-NOWygeWl",
-      "title": "4岁女童就诊177次 患者竟是母亲",
-      "source": "今日头条",
+      "id": "toutiao-5-5byg6Zuq",
+      "title": "张雪峰去世 年仅41岁",
+      "source": "今日头条 / 百度热搜",
       "sources": [
-        "今日头条"
+        "今日头条",
+        "百度热搜"
       ],
-      "source_count": 1,
+      "source_count": 2,
       "time": "--:--",
       "category": [
-        "身份反转",
-        "医疗异常",
-        "家庭失序"
+        "标题疑似失实",
+        "名人讣闻误报",
+        "离谱标题",
+        "信息失真"
       ],
-      "score": 96,
-      "comment": "挂号单都分不清人了",
-      "reason": "标题里最荒诞的不是“就诊177次”，而是“患者竟是母亲”这种身份反转，说明叙述或事件本身极不寻常。无论是信息表述混乱还是现实确有其事，都已经离常识和医疗流程很远。",
+      "score": 98,
+      "comment": "这标题先把人吓一跳",
+      "reason": "标题直接写“张雪峰去世”，但未见任何具体信息支撑，属于高度敏感且极易误导的表述。涉及公众人物生死，哪怕只是标题失真，也会把信息传播的荒谬放大到近乎事故级。",
       "dimensions": {
-        "反常识": 98,
-        "黑色幽默": 82,
-        "系统性离谱": 87,
-        "传播戏剧性": 90,
-        "赛博浓度": 12
+        "反常识": 99,
+        "黑色幽默": 92,
+        "系统性离谱": 76,
+        "传播戏剧性": 95,
+        "赛博浓度": 18
       },
-      "url": "https://www.toutiao.com/trending/7620652707593879593/",
+      "url": "https://www.toutiao.com/trending/7620807361557708810/",
       "scoring_mode": "cache"
     },
     {
-      "id": "thepaper-3-6Ieq56ew",
+      "id": "thepaper-2-6Ieq56ew",
       "title": "自称日本自卫队现役官员强闯中国驻日本大使馆，外交部：严正交涉，强烈抗议",
       "source": "澎湃新闻",
       "sources": [
@@ -92,7 +94,7 @@
       "scoring_mode": "cache"
     },
     {
-      "id": "hn-0-TGl0ZUxM",
+      "id": "hn-1-TGl0ZUxM",
       "title": "LiteLLM Python package compromised by supply-chain attack",
       "source": "Hacker News",
       "sources": [
@@ -147,6 +149,6 @@
       "scoring_mode": "cache"
     }
   ],
-  "saved_at": "2026-03-24T13:50:55.375Z",
+  "saved_at": "2026-03-24T14:47:37.587Z",
   "share_image": "/share/2026-03-24.svg"
 }
