@@ -76,8 +76,8 @@ export default async function Home() {
               用一个不太严肃但相当认真的指数，量化现实的抽象程度。
             </p>
             <div className="flex flex-wrap gap-3">
-              <a href="#top8" className="rounded-full border border-emerald-300/25 bg-emerald-300/8 px-5 py-3 text-sm font-semibold text-white transition hover:bg-emerald-300/12">
-                查看今日 TOP 8
+              <a href="#top10" className="rounded-full border border-emerald-300/25 bg-emerald-300/8 px-5 py-3 text-sm font-semibold text-white transition hover:bg-emerald-300/12">
+                查看今日 TOP 10
               </a>
               <a href="#trend" className="rounded-full border border-white/10 bg-white/4 px-5 py-3 text-sm font-semibold text-slate-200 transition hover:bg-white/8">
                 查看历史趋势
@@ -126,10 +126,10 @@ export default async function Home() {
           </div>
         </section>
 
-        <section id="top8" className="mb-10">
+        <section id="top10" className="mb-10">
           <div className="mb-5 flex flex-col gap-2 md:flex-row md:items-end md:justify-between">
             <div>
-              <h2 className="text-3xl font-bold tracking-[-0.03em]">今天最离谱的 8 件事</h2>
+              <h2 className="text-3xl font-bold tracking-[-0.03em]">今天最离谱的 10 件事</h2>
               <p className="mt-2 text-slate-400">把今天最值得看的几件离谱事收拢在一起，省得你被满屏信息拖着跑。</p>
             </div>
           </div>

@@ -2,32 +2,55 @@
   <rect width="1200" height="630" fill="#071018" />
   <circle cx="170" cy="110" r="220" fill="rgba(114,255,191,0.08)" />
   <circle cx="1040" cy="60" r="180" fill="rgba(111,233,255,0.08)" />
-  <rect x="42" y="42" width="1116" height="546" rx="32" fill="rgba(10,20,30,0.82)" stroke="rgba(114,255,191,0.15)" />
+  <circle cx="1040" cy="590" r="220" fill="rgba(255,179,71,0.06)" />
+  <rect x="42" y="42" width="1116" height="546" rx="32" fill="rgba(10,20,30,0.86)" stroke="rgba(114,255,191,0.15)" />
 
-  <text x="72" y="110" font-size="24" letter-spacing="6" fill="#72FFBF">TODAY'S ABSURDITY INDEX</text>
-  <text x="72" y="180" font-size="72" font-weight="800" fill="#F2FFF9">今日荒谬指数</text>
-  <text x="74" y="240" font-size="28" fill="#9DC8B7">2026-03-24 · 高危荒谬</text>
+  <text x="72" y="98" font-size="24" letter-spacing="6" fill="#72FFBF">TODAY'S ABSURDITY INDEX</text>
+  <text x="72" y="162" font-size="68" font-weight="900" fill="#F2FFF9">今日荒谬指数</text>
+  <text x="74" y="214" font-size="26" fill="#9DC8B7">2026-03-24 · 高危荒谬</text>
 
-  <rect x="846" y="88" width="250" height="180" rx="28" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.08)" />
-  <text x="875" y="138" font-size="22" fill="#9DC8B7">今日指数</text>
-  <text x="875" y="242" font-size="110" font-weight="900" fill="#72FFBF">84</text>
+  <rect x="72" y="382" width="292" height="126" rx="28" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.08)" />
+  <text x="100" y="426" font-size="22" fill="#9DC8B7">今日指数</text>
+  <text x="100" y="492" font-size="88" font-weight="900" fill="#72FFBF">84</text>
 
-  <text x="72" y="290" font-size="22" fill="#9DC8B7">今日最值得看的离谱事</text>
-  <text x="72" y="330" font-size="40" font-weight="700" fill="#F2FFF9">花3万网购19台电视只收到1支笔</text>
+  <text x="72" y="246" font-size="20" fill="#9DC8B7">今日最值得看的离谱事</text>
+  <text x="72" y="284" font-size="38" font-weight="800" fill="#F2FFF9">佳兆业集团：预期2025年录得公</text>
+<text x="72" y="334" font-size="38" font-weight="800" fill="#F2FFF9">司拥有人应占溢利不少于500亿元</text>
 
-  <text x="72" y="520" font-size="24" fill="#E9FFF6">今天建议少刷热搜，多喝水，保护理智。</text>
+  <text x="72" y="530" font-size="24" fill="#E9FFF6">今天建议少刷热搜，多喝水，保护理智。</text>
   
-        <rect x="72" y="560" rx="22" ry="22" width="132" height="44" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.08)" />
-        <text x="94" y="589" font-size="20" fill="#CDEFE1">网购纠纷</text>
+        <rect x="72" y="548" rx="20" ry="20" width="132" height="42" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.08)" />
+        <text x="92" y="575" font-size="19" fill="#CDEFE1">财务预期反差</text>
 
-        <rect x="222" y="560" rx="22" ry="22" width="132" height="44" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.08)" />
-        <text x="244" y="589" font-size="20" fill="#CDEFE1">货不对版</text>
+        <rect x="222" y="548" rx="20" ry="20" width="132" height="42" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.08)" />
+        <text x="242" y="575" font-size="19" fill="#CDEFE1">地产叙事回弹</text>
 
-        <rect x="372" y="560" rx="22" ry="22" width="132" height="44" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.08)" />
-        <text x="394" y="589" font-size="20" fill="#CDEFE1">消费维权</text>
+        <rect x="372" y="548" rx="20" ry="20" width="132" height="42" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.08)" />
+        <text x="392" y="575" font-size="19" fill="#CDEFE1">市场信号失真</text>
 
-        <rect x="522" y="560" rx="22" ry="22" width="132" height="44" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.08)" />
-        <text x="544" y="589" font-size="20" fill="#CDEFE1">外交冲突</text>
+        <rect x="522" y="548" rx="20" ry="20" width="132" height="42" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.08)" />
+        <text x="542" y="575" font-size="19" fill="#CDEFE1">财务预期</text>
 
-  <text x="72" y="610" font-size="20" fill="#7EA394">https://collie.cc</text>
+  <text x="760" y="118" font-size="24" fill="#9DC8B7">今日 TOP 3</text>
+  
+        <rect x="760" y="170" width="360" height="88" rx="22" fill="rgba(255,255,255,0.035)" stroke="rgba(255,255,255,0.08)" />
+        <text x="788" y="204" font-size="18" fill="#7DEAC8">TOP 1</text>
+        <text x="1090" y="206" font-size="34" text-anchor="end" font-weight="900" fill="#72FFBF">96</text>
+        <text x="788" y="236" font-size="22" font-weight="700" fill="#F2FFF9">佳兆业集团：预期2025年录得公司…</text>
+      
+
+        <rect x="760" y="275" width="360" height="88" rx="22" fill="rgba(255,255,255,0.035)" stroke="rgba(255,255,255,0.08)" />
+        <text x="788" y="309" font-size="18" fill="#7DEAC8">TOP 2</text>
+        <text x="1090" y="311" font-size="34" text-anchor="end" font-weight="900" fill="#72FFBF">92</text>
+        <text x="788" y="341" font-size="22" font-weight="700" fill="#F2FFF9">自称日本自卫队现役官员强闯中国驻日…</text>
+      
+
+        <rect x="760" y="380" width="360" height="88" rx="22" fill="rgba(255,255,255,0.035)" stroke="rgba(255,255,255,0.08)" />
+        <text x="788" y="414" font-size="18" fill="#7DEAC8">TOP 3</text>
+        <text x="1090" y="416" font-size="34" text-anchor="end" font-weight="900" fill="#72FFBF">92</text>
+        <text x="788" y="446" font-size="22" font-weight="700" fill="#F2FFF9">中方回应日本人强闯中使馆威胁杀人</text>
+      
+
+  <text x="72" y="612" font-size="20" fill="#7EA394">https://collie.cc</text>
+  <text x="1118" y="612" font-size="18" text-anchor="end" fill="#5E7E72">Top 10 · Multi-source Digest</text>
 </svg>
