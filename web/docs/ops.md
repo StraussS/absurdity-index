@@ -28,7 +28,7 @@ Suggested schedule example:
 
 ## Optional environment variables
 
-- `WEIBO_COOKIE`
+- `WEIBO_COOKIE`（配置后启用微博热搜抓取；未配置时微博源会自动跳过，不影响站点运行）
 - `ABSURDITY_ENABLED_SOURCES`
 - `ABSURDITY_DISABLED_SOURCES`
 - `ABSURDITY_SOURCE_LIMITS`

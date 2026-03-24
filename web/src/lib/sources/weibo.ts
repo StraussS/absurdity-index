@@ -29,11 +29,13 @@ function parseWeiboItems(html: string): SourceSeedItem[] {
 export async function fetchWeiboItems(limit = 10) {
   const cookie = process.env.WEIBO_COOKIE;
   if (!cookie) return [];
+
   const html = await fetchText(WEIBO_URL, {
     headers: {
       cookie,
       referer: WEIBO_URL,
     },
   });
+
   return toAbsurdityItems(parseWeiboItems(html).slice(0, limit), "weibo");
 }

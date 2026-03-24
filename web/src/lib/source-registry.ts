@@ -33,7 +33,7 @@ export type SourceRegistryItem = {
 };
 
 const DEFAULT_SOURCE_REGISTRY: SourceRegistryItem[] = [
-  { key: "weibo", label: "微博热搜", enabledByDefault: false, limit: 10, fetcher: fetchWeiboItems },
+  { key: "weibo", label: "微博热搜", enabledByDefault: true, limit: 10, fetcher: fetchWeiboItems },
   { key: "baidu", label: "百度热搜", enabledByDefault: true, limit: 8, fetcher: fetchBaiduItems },
   { key: "ithome", label: "IT之家", enabledByDefault: true, limit: 6, fetcher: fetchIthomeItems },
   { key: "kr36", label: "36氪", enabledByDefault: true, limit: 6, fetcher: fetch36KrItems },
