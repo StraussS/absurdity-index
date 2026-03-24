@@ -67,8 +67,8 @@ export async function generateShareCard(data: DailyAbsurdity) {
     .map((keyword, index) => {
       const x = 68 + index * 168;
       return `
-        <rect x="${x}" y="820" rx="20" ry="20" width="138" height="42" fill="#111827" fill-opacity="0.08" />
-        <text x="${x + 18}" y="847" font-size="22" font-weight="700" fill="#374151">${escapeXml(clampText(keyword, 6))}</text>`;
+        <rect x="${x}" y="792" rx="20" ry="20" width="138" height="42" fill="#111827" fill-opacity="0.08" />
+        <text x="${x + 18}" y="819" font-size="22" font-weight="700" fill="#374151">${escapeXml(clampText(keyword, 6))}</text>`;
     })
     .join("\n");
 
@@ -97,7 +97,7 @@ export async function generateShareCard(data: DailyAbsurdity) {
 
   ${keywordSvg}
 
-  <text x="68" y="856" font-size="28" font-weight="900" fill="#111827">今天最值得看的 5 条</text>
+  <text x="68" y="870" font-size="28" font-weight="900" fill="#111827">今天最值得看的 5 条</text>
   ${rankingSvg}
 
   <text x="68" y="1372" font-size="22" font-weight="700" fill="#6B7280">${escapeXml(lead?.comment ? clampText(lead.comment, 18) : "现实有时比段子更会写段子")}</text>
