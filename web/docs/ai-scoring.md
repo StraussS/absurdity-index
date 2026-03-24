@@ -29,6 +29,14 @@ AI_SCORING_API_KEY=your_key
 AI_SCORING_MODEL=your_model_name
 ```
 
+## Optional cache env vars
+
+```bash
+AI_SCORING_CACHE_TTL_MS=604800000
+```
+
+Default cache TTL is 7 days.
+
 ## Output shape expected from model
 
 The model is asked to return JSON like:
