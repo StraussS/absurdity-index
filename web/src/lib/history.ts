@@ -1,4 +1,4 @@
-import { mkdir, readFile, writeFile } from "node:fs/promises";
+import { mkdir, readFile, readdir, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { DailyAbsurdity } from "@/lib/absurdity";
 
@@ -62,4 +62,19 @@ export function mergeTrendFromHistory(current: DailyAbsurdity, history: HistoryS
     if (date === current.date) return current.daily_index;
     return trendMap.get(date) ?? current.trend[index] ?? current.daily_index;
   });
+}
+
+export async function listHistorySnapshots() {
+  try {
+    await mkdir(HISTORY_DIR, { recursive: true });
+    const files = await readdir(HISTORY_DIR);
+    const snapshots = await Promise.all(
+      files
+        .filter((file) => file.endsWith('.json'))
+        .map((file) => loadDailySnapshot(file.replace(/\.json$/, ''))),
+    );
+    return snapshots.filter(Boolean).sort((a, b) => (a!.date < b!.date ? 1 : -1)) as HistorySnapshot[];
+  } catch {
+    return [];
+  }
 }

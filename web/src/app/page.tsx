@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { getTodayData } from "@/lib/sources";
 
 const trendDays = ["一", "二", "三", "四", "五", "六", "今"];
@@ -71,6 +72,9 @@ export default async function Home() {
               <a href="#trend" className="rounded-full border border-white/10 bg-white/4 px-5 py-3 text-sm font-semibold text-slate-200 transition hover:bg-white/8">
                 查看历史趋势
               </a>
+              <Link href="/history" className="rounded-full border border-white/10 bg-white/4 px-5 py-3 text-sm font-semibold text-slate-200 transition hover:bg-white/8">
+                查看历史归档
+              </Link>
             </div>
           </div>
 
