@@ -122,33 +122,33 @@
       "scoring_mode": "cache"
     },
     {
-      "id": "hn-5-Y3VybCA+",
-      "title": "curl > /dev/sda: How I made a Linux distro that runs wget | dd",
-      "source": "Hacker News",
+      "id": "tencent-0-5pel5aqS",
+      "title": "日媒：擅闯中国大使馆的男子持有自卫官证件，还带了把刀",
+      "source": "腾讯新闻",
       "sources": [
-        "Hacker News"
+        "腾讯新闻"
       ],
       "source_count": 1,
-      "time": "18:06",
+      "time": "--:--",
       "category": [
-        "极简系统折叠",
-        "命令行自我吞噬",
-        "技术叙事反讽"
+        "外交场所越界",
+        "身份与行为反差",
+        "安全失序"
       ],
-      "score": 87,
-      "comment": "把工具链卷成了回旋镖。",
-      "reason": "标题把 curl、wget、dd 这些本来各司其职的命令硬拧成一套“发行版”，还直接写进 /dev/sda，像是在用系统工具做系统解剖。荒谬点不在于技术名词多，而在于它把“能跑”这件事推到近乎自噬的程度。",
+      "score": 86,
+      "comment": "证件在手，刀也在手",
+      "reason": "标题里最刺眼的不是“擅闯”，而是“自卫官证件”与“带刀”同时出现，身份和行为直接打架。对大使馆这种高度敏感场所而言，这种组合本身就足够荒谬。",
       "dimensions": {
-        "反常识": 84,
-        "黑色幽默": 79,
-        "系统性离谱": 72,
-        "传播戏剧性": 68,
-        "赛博浓度": 96
+        "反常识": 88,
+        "黑色幽默": 72,
+        "系统性离谱": 81,
+        "传播戏剧性": 84,
+        "赛博浓度": 18
       },
-      "url": "https://astrid.tech/2026/03/24/0/curl-to-dev-sda/",
+      "url": "https://view.inews.qq.com/a/20260324A060TO00",
       "scoring_mode": "cache"
     }
   ],
-  "saved_at": "2026-03-24T14:47:37.587Z",
+  "saved_at": "2026-03-24T14:52:56.004Z",
   "share_image": "/share/2026-03-24.svg"
 }

@@ -60,8 +60,19 @@ export function formatTime(input?: string | number) {
   return date.toLocaleTimeString("zh-CN", { hour: "2-digit", minute: "2-digit", hour12: false });
 }
 
+function looksLikeTechnicalMemeTitle(title: string) {
+  return /(curl\s*>\s*\/dev\/sda|wget\s*\|\s*dd|rm\s+-rf|\bShow HN\b|\bAsk HN\b|\bLaunch HN\b|\|\s*dd\b)/i.test(title);
+}
+
+function isPublicFriendlyTitle(title: string) {
+  const trimmed = title.trim();
+  if (!trimmed) return false;
+  if (looksLikeTechnicalMemeTitle(trimmed)) return false;
+  return true;
+}
+
 export async function toAbsurdityItems(items: SourceSeedItem[], prefix: string): Promise<AbsurdityItem[]> {
-  return scoreSeedItems(items, prefix);
+  return scoreSeedItems(items.filter((item) => isPublicFriendlyTitle(item.title)), prefix);
 }
 
 export function parseRssItems(xml: string, source: string): SourceSeedItem[] {
