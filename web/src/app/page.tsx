@@ -72,8 +72,8 @@ export default async function Home() {
               今天的世界，<br />离谱到几分？
             </h1>
             <p className="mb-6 max-w-3xl text-lg leading-8 text-emerald-50/88 md:text-xl">
-              我们抓取每天最像段子、最反常识、最有赛博荒诞感的事件，
-              用一个不太严肃但相当认真的指数，把现实的抽象程度量化给你看。
+              抓取每天最像段子、最反常识、最有赛博荒诞感的事件，
+              用一个不太严肃但相当认真的指数，量化现实的抽象程度。
             </p>
             <div className="flex flex-wrap gap-3">
               <a href="#top5" className="rounded-full border border-emerald-300/25 bg-emerald-300/8 px-5 py-3 text-sm font-semibold text-white transition hover:bg-emerald-300/12">
