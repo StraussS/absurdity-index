@@ -95,7 +95,7 @@ export default async function Home() {
           <div className="rounded-[22px] border border-white/8 bg-white/4 p-6">
             <div className="mb-3 text-xs uppercase tracking-[0.22em] text-slate-400">最荒谬领域</div>
             <div className="mb-2 text-4xl font-black">{today.keywords.slice(0, 2).join(" / ") || "魔幻现实"}</div>
-            <div className="text-sm leading-6 text-slate-300">当前数据来自 百度热搜、IT之家列表页、36氪快讯、Google News RSS、Hacker News，微博热搜可通过 Cookie 选配接入。</div>
+            <div className="text-sm leading-6 text-slate-300">当前数据来自 百度热搜、微博热搜（可选）、IT之家、36氪、澎湃、华尔街见闻、头条、少数派、腾讯新闻、Google News RSS、Hacker News。</div>
           </div>
           <div className="rounded-[22px] border border-white/8 bg-white/4 p-6">
             <div className="mb-3 text-xs uppercase tracking-[0.22em] text-slate-400">今日关键词</div>
@@ -168,7 +168,7 @@ export default async function Home() {
         </section>
 
         <footer className="px-1 pt-10 pb-4 text-center text-sm leading-7 text-slate-400">
-          当前已接入真实来源：百度热搜 + IT之家列表页 + 36氪快讯页 + Google News RSS + Hacker News；微博热搜支持通过 WEIBO_COOKIE 选配接入。<br />
+          当前已接入真实来源：百度热搜 + IT之家 + 36氪 + 澎湃 + 华尔街见闻 + 今日头条 + 少数派 + 腾讯新闻 + Google News RSS + Hacker News；微博热搜支持通过 WEIBO_COOKIE 选配接入。<br />
           下一步最值得做的是：接 AI 精评分、持久化历史数据、生成分享图。
         </footer>
       </div>
