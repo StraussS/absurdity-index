@@ -6,6 +6,7 @@ const HISTORY_DIR = path.join(process.cwd(), "data", "history");
 
 export type HistorySnapshot = Pick<DailyAbsurdity, "date" | "daily_index" | "level" | "summary" | "keywords" | "top_items"> & {
   saved_at: string;
+  share_image?: string;
 };
 
 function normalizeDate(date = new Date()) {
@@ -16,7 +17,7 @@ function snapshotPath(date: string) {
   return path.join(HISTORY_DIR, `${date}.json`);
 }
 
-export async function saveDailySnapshot(data: DailyAbsurdity) {
+export async function saveDailySnapshot(data: DailyAbsurdity, extra?: { share_image?: string }) {
   await mkdir(HISTORY_DIR, { recursive: true });
   const snapshot: HistorySnapshot = {
     date: data.date,
@@ -26,6 +27,7 @@ export async function saveDailySnapshot(data: DailyAbsurdity) {
     keywords: data.keywords,
     top_items: data.top_items,
     saved_at: new Date().toISOString(),
+    share_image: extra?.share_image,
   };
   await writeFile(snapshotPath(data.date), JSON.stringify(snapshot, null, 2), "utf8");
 }

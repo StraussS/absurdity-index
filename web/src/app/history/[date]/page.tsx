@@ -39,13 +39,18 @@ export default async function HistoryDetailPage({ params }: { params: Promise<{ 
           ))}
         </div>
 
-        <div className="mb-8 flex gap-3">
+        <div className="mb-8 flex flex-wrap gap-3">
           <Link href="/history" className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-slate-200 hover:bg-white/8">
             返回历史列表
           </Link>
           <Link href="/" className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-slate-200 hover:bg-white/8">
             返回首页
           </Link>
+          {snapshot.share_image ? (
+            <a href={snapshot.share_image} target="_blank" rel="noreferrer" className="rounded-full border border-emerald-300/20 bg-emerald-300/10 px-4 py-2 text-sm text-emerald-100 hover:bg-emerald-300/15">
+              查看分享图
+            </a>
+          ) : null}
         </div>
 
         <section className="grid gap-4">

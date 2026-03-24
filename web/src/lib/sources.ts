@@ -3,6 +3,7 @@ import { DailyAbsurdity, buildDailySummary } from "@/lib/absurdity";
 import { dedupeAbsurdityItems } from "@/lib/dedupe";
 import { loadRecentHistory, mergeTrendFromHistory, saveDailySnapshot } from "@/lib/history";
 import { getSourceRegistry } from "@/lib/source-registry";
+import { generateShareCard } from "@/lib/share-card";
 
 export async function getTodayData(): Promise<DailyAbsurdity> {
   try {
@@ -37,7 +38,8 @@ export async function getTodayData(): Promise<DailyAbsurdity> {
 
     const history = await loadRecentHistory(7);
     current.trend = mergeTrendFromHistory(current, history);
-    await saveDailySnapshot(current);
+    const share = await generateShareCard(current);
+    await saveDailySnapshot(current, { share_image: share.publicPath });
     return current;
   } catch (error) {
     console.error("Failed to fetch live sources, using fallback data.", error);
