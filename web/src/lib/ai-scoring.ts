@@ -1,4 +1,4 @@
-import { AbsurdityDimensions, AbsurdityItem, scoreTitle } from "@/lib/absurdity";
+import { AbsurdityDimensions, AbsurdityItem, ScoringMode, scoreTitle } from "@/lib/absurdity";
 import { loadAICache, saveAICache } from "@/lib/ai-cache";
 import { SourceSeedItem, formatTime } from "@/lib/source-utils";
 
@@ -8,6 +8,11 @@ type AIScoredItem = {
   dimensions?: Partial<AbsurdityDimensions>;
   comment?: string;
   reason?: string;
+};
+
+type AIResult = {
+  data: AIScoredItem | null;
+  mode: ScoringMode;
 };
 
 function clamp(value: number, min = 0, max = 100) {
@@ -39,23 +44,26 @@ function systemPrompt() {
   ].join("\n");
 }
 
-async function requestAIScoring(seed: SourceSeedItem): Promise<AIScoredItem | null> {
+async function requestAIScoring(seed: SourceSeedItem): Promise<AIResult> {
   const baseUrl = process.env.AI_SCORING_BASE_URL;
   const apiKey = process.env.AI_SCORING_API_KEY;
   const model = process.env.AI_SCORING_MODEL;
 
   if (!baseUrl || !apiKey || !model) {
-    return null;
+    return { data: null, mode: "rule" };
   }
 
   const cached = await loadAICache(seed);
   if (cached) {
     return {
-      absurdity_score: cached.absurdity_score,
-      categories: cached.categories,
-      dimensions: cached.dimensions as Partial<AbsurdityDimensions> | undefined,
-      comment: cached.comment,
-      reason: cached.reason,
+      data: {
+        absurdity_score: cached.absurdity_score,
+        categories: cached.categories,
+        dimensions: cached.dimensions as Partial<AbsurdityDimensions> | undefined,
+        comment: cached.comment,
+        reason: cached.reason,
+      },
+      mode: "cache",
     };
   }
 
@@ -89,7 +97,7 @@ async function requestAIScoring(seed: SourceSeedItem): Promise<AIScoredItem | nu
   };
 
   const raw = data.choices?.[0]?.message?.content;
-  if (!raw) return null;
+  if (!raw) return { data: null, mode: "rule" };
 
   try {
     const parsed = JSON.parse(raw) as AIScoredItem;
@@ -102,26 +110,30 @@ async function requestAIScoring(seed: SourceSeedItem): Promise<AIScoredItem | nu
         reason: parsed.reason,
       });
     }
-    return parsed;
+    return { data: parsed, mode: "ai" };
   } catch {
-    return null;
+    return { data: null, mode: "rule" };
   }
 }
 
 export async function scoreSeedItem(seed: SourceSeedItem, prefix: string, index: number): Promise<AbsurdityItem> {
   const fallback = scoreTitle(seed.title);
-  let ai: AIScoredItem | null = null;
+  let aiResult: AIResult = { data: null, mode: "rule" };
 
   try {
-    ai = await requestAIScoring(seed);
+    aiResult = await requestAIScoring(seed);
   } catch {
-    ai = null;
+    aiResult = { data: null, mode: "rule" };
   }
+
+  const ai = aiResult.data;
 
   return {
     id: `${prefix}-${index}-${Buffer.from(seed.title).toString("base64").slice(0, 8)}`,
     title: seed.title,
     source: seed.source,
+    sources: [seed.source],
+    source_count: 1,
     time: formatTime(seed.pubDate),
     category: (ai?.categories && ai.categories.length > 0 ? ai.categories : fallback.categories).slice(0, 4),
     score: clamp(Math.round(ai?.absurdity_score ?? fallback.score)),
@@ -129,6 +141,7 @@ export async function scoreSeedItem(seed: SourceSeedItem, prefix: string, index:
     reason: ai?.reason?.trim() || fallback.reason,
     dimensions: mergeDimensions(fallback.dimensions, ai?.dimensions),
     url: seed.link,
+    scoring_mode: aiResult.mode,
   } satisfies AbsurdityItem;
 }
 

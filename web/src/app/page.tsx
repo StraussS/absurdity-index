@@ -9,6 +9,14 @@ async function ScoreCard({ item }: { item: Awaited<ReturnType<typeof getTodayDat
       <div>
         <div className="mb-3 flex flex-wrap gap-2 text-xs text-emerald-100/85">
           <span className="rounded-full border border-emerald-300/15 bg-emerald-300/8 px-3 py-1">{item.source}</span>
+          {item.source_count && item.source_count > 1 ? (
+            <span className="rounded-full border border-cyan-300/15 bg-cyan-300/8 px-3 py-1 text-cyan-100">
+              同题聚合 · {item.source_count} 源
+            </span>
+          ) : null}
+          <span className="rounded-full border border-amber-300/15 bg-amber-300/8 px-3 py-1 text-amber-100">
+            评分：{item.scoring_mode === "ai" ? "AI" : item.scoring_mode === "cache" ? "缓存" : "规则"}
+          </span>
           {item.category.map((cat) => (
             <span key={cat} className="rounded-full border border-emerald-300/15 bg-emerald-300/8 px-3 py-1">
               {cat}
@@ -20,6 +28,11 @@ async function ScoreCard({ item }: { item: Awaited<ReturnType<typeof getTodayDat
         <h3 className="mb-3 text-xl leading-8 font-semibold text-white md:text-2xl">{item.title}</h3>
         <p className="mb-3 text-base leading-7 text-emerald-50">{item.comment}</p>
         <p className="text-sm leading-7 text-slate-300 md:text-[15px]">{item.reason}</p>
+        {item.sources && item.sources.length > 1 ? (
+          <div className="mt-4 text-xs leading-6 text-slate-400">
+            聚合来源：{item.sources.join(" · ")}
+          </div>
+        ) : null}
       </div>
 
       <div className="rounded-[18px] border border-white/8 bg-white/4 p-5 text-center">

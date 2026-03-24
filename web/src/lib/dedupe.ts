@@ -23,16 +23,26 @@ function similarity(a: string, b: string) {
   return overlap / Math.max(Math.min(ta.length, tb.length), 1);
 }
 
+function mergedScoringMode(base: AbsurdityItem, candidate: AbsurdityItem) {
+  const order = { ai: 3, cache: 2, rule: 1 } as const;
+  const baseMode = base.scoring_mode ?? "rule";
+  const candidateMode = candidate.scoring_mode ?? "rule";
+  return order[candidateMode] > order[baseMode] ? candidateMode : baseMode;
+}
+
 function mergeItems(base: AbsurdityItem, candidate: AbsurdityItem): AbsurdityItem {
-  const mergedSources = Array.from(new Set([...base.source.split(" / "), ...candidate.source.split(" / ")])).join(" / ");
+  const mergedSources = Array.from(new Set([...(base.sources ?? [base.source]), ...(candidate.sources ?? [candidate.source])]));
   const mergedCategories = Array.from(new Set([...base.category, ...candidate.category])).slice(0, 4);
   const better = candidate.score > base.score ? candidate : base;
 
   return {
     ...better,
-    source: mergedSources,
+    source: mergedSources.join(" / "),
+    sources: mergedSources,
+    source_count: mergedSources.length,
     category: mergedCategories,
     score: Math.max(base.score, candidate.score),
+    scoring_mode: mergedScoringMode(base, candidate),
   };
 }
 

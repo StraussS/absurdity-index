@@ -6,10 +6,14 @@ export type AbsurdityDimensions = {
   赛博浓度: number;
 };
 
+export type ScoringMode = "ai" | "cache" | "rule";
+
 export type AbsurdityItem = {
   id: string;
   title: string;
   source: string;
+  sources?: string[];
+  source_count?: number;
   time: string;
   category: string[];
   score: number;
@@ -17,6 +21,7 @@ export type AbsurdityItem = {
   reason: string;
   dimensions: AbsurdityDimensions;
   url: string;
+  scoring_mode?: ScoringMode;
 };
 
 export type DailyAbsurdity = {
