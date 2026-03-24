@@ -47,18 +47,18 @@ export async function generateShareCard(data: DailyAbsurdity) {
   const leadSvg = leadLines
     .map(
       (line, index) =>
-        `<text x="68" y="${288 + index * 62}" font-size="50" font-weight="900" fill="#111827">${escapeXml(line)}</text>`,
+        `<text x="68" y="${330 + index * 62}" font-size="50" font-weight="900" fill="#111827">${escapeXml(line)}</text>`,
     )
     .join("\n");
 
   const rankingSvg = top5
     .map((item, index) => {
-      const y = 934 + index * 94;
+      const y = 884 + index * 88;
       return `
-        <rect x="56" y="${y}" width="968" height="74" rx="24" fill="rgba(255,255,255,0.86)" />
-        <text x="86" y="${y + 28}" font-size="18" font-weight="800" fill="#F97316">TOP ${index + 1}</text>
-        <text x="86" y="${y + 54}" font-size="25" font-weight="800" fill="#111827">${escapeXml(clampText(item.title, 22))}</text>
-        <text x="986" y="${y + 52}" text-anchor="end" font-size="30" font-weight="900" fill="#111827">${item.score}</text>
+        <rect x="56" y="${y}" width="968" height="68" rx="22" fill="rgba(255,255,255,0.86)" />
+        <text x="86" y="${y + 24}" font-size="17" font-weight="800" fill="#F97316">TOP ${index + 1}</text>
+        <text x="86" y="${y + 48}" font-size="24" font-weight="800" fill="#111827">${escapeXml(clampText(item.title, 22))}</text>
+        <text x="986" y="${y + 46}" text-anchor="end" font-size="28" font-weight="900" fill="#111827">${item.score}</text>
       `;
     })
     .join("\n");
@@ -84,7 +84,7 @@ export async function generateShareCard(data: DailyAbsurdity) {
   <text x="68" y="204" font-size="72" font-weight="900" fill="#FFFFFF">TOP 5 离谱事件</text>
 
   <rect x="44" y="254" width="992" height="500" rx="42" fill="#FFF8EE" />
-  <text x="68" y="244" font-size="20" font-weight="800" fill="#C2410C">今天最离谱</text>
+  <text x="68" y="276" font-size="20" font-weight="800" fill="#C2410C">今天最离谱</text>
   ${leadSvg}
 
   <rect x="68" y="596" width="260" height="110" rx="30" fill="#111827" />
@@ -97,7 +97,7 @@ export async function generateShareCard(data: DailyAbsurdity) {
 
   ${keywordSvg}
 
-  <text x="68" y="900" font-size="28" font-weight="900" fill="#111827">今天最值得看的 5 条</text>
+  <text x="68" y="856" font-size="28" font-weight="900" fill="#111827">今天最值得看的 5 条</text>
   ${rankingSvg}
 
   <text x="68" y="1372" font-size="22" font-weight="700" fill="#6B7280">${escapeXml(lead?.comment ? clampText(lead.comment, 18) : "现实有时比段子更会写段子")}</text>
