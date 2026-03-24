@@ -1,10 +1,8 @@
-import today from "@/data/today.json";
-
-type TopItem = (typeof today.top_items)[number];
+import { getTodayData } from "@/lib/sources";
 
 const trendDays = ["一", "二", "三", "四", "五", "六", "今"];
 
-function ScoreCard({ item }: { item: TopItem }) {
+async function ScoreCard({ item }: { item: Awaited<ReturnType<typeof getTodayData>>["top_items"][number] }) {
   return (
     <article className="grid gap-5 rounded-[24px] border border-white/8 bg-white/4 p-6 shadow-[0_20px_50px_rgba(0,0,0,0.28)] backdrop-blur md:grid-cols-[1fr_160px]">
       <div>
@@ -27,14 +25,23 @@ function ScoreCard({ item }: { item: TopItem }) {
         <div className="mb-2 text-xs uppercase tracking-[0.22em] text-slate-400">荒谬分</div>
         <div className="text-5xl leading-none font-black text-amber-300">{item.score}</div>
         <div className="mt-3 text-sm text-slate-300">{item.score >= 70 ? "高危荒谬" : item.score >= 40 ? "中度荒谬" : "轻微抽象"}</div>
+        <a
+          href={item.url}
+          target="_blank"
+          rel="noreferrer"
+          className="mt-4 inline-block text-xs text-cyan-300 underline underline-offset-4"
+        >
+          查看原文
+        </a>
       </div>
     </article>
   );
 }
 
-export default function Home() {
+export default async function Home() {
+  const today = await getTodayData();
   const lead = today.top_items[0];
-  const dimensions = Object.entries(lead.dimensions);
+  const dimensions = lead ? Object.entries(lead.dimensions) : [];
 
   return (
     <main className="min-h-screen bg-[radial-gradient(circle_at_top_left,rgba(114,255,191,0.08),transparent_28%),radial-gradient(circle_at_top_right,rgba(111,233,255,0.08),transparent_24%),linear-gradient(180deg,#050b11,#09131b_36%,#060d14_100%)] text-white">
@@ -75,10 +82,7 @@ export default function Home() {
             <div className="inline-flex rounded-full border border-rose-300/20 bg-rose-300/10 px-4 py-2 text-sm font-bold text-rose-100">
               {today.level}
             </div>
-            <p className="mt-5 text-[15px] leading-7 text-emerald-50/88">
-              {today.summary}
-              <br />本日异常主要集中在 AI 流程、平台逻辑和现实反转。
-            </p>
+            <p className="mt-5 text-[15px] leading-7 text-emerald-50/88">{today.summary}</p>
           </div>
         </section>
 
@@ -86,12 +90,12 @@ export default function Home() {
           <div className="rounded-[22px] border border-white/8 bg-white/4 p-6">
             <div className="mb-3 text-xs uppercase tracking-[0.22em] text-slate-400">总指数</div>
             <div className="mb-2 text-4xl font-black">{today.daily_index} / 100</div>
-            <div className="text-sm text-amber-300">较昨日 +12 · 离谱升级</div>
+            <div className="text-sm text-amber-300">实时聚合 · 多源评分</div>
           </div>
           <div className="rounded-[22px] border border-white/8 bg-white/4 p-6">
             <div className="mb-3 text-xs uppercase tracking-[0.22em] text-slate-400">最荒谬领域</div>
-            <div className="mb-2 text-4xl font-black">AI / 科技</div>
-            <div className="text-sm leading-6 text-slate-300">今天最离谱的事主要集中在自动化、监控和平台机制。</div>
+            <div className="mb-2 text-4xl font-black">{today.keywords.slice(0, 2).join(" / ") || "魔幻现实"}</div>
+            <div className="text-sm leading-6 text-slate-300">当前数据来自 Hacker News 与 Google News RSS 聚合。</div>
           </div>
           <div className="rounded-[22px] border border-white/8 bg-white/4 p-6">
             <div className="mb-3 text-xs uppercase tracking-[0.22em] text-slate-400">今日关键词</div>
@@ -109,7 +113,7 @@ export default function Home() {
           <div className="mb-5 flex flex-col gap-2 md:flex-row md:items-end md:justify-between">
             <div>
               <h2 className="text-3xl font-bold tracking-[-0.03em]">今天最离谱的 5 件事</h2>
-              <p className="mt-2 text-slate-400">以下内容全部真实感十足，只是现实最近越来越像虚构作品。</p>
+              <p className="mt-2 text-slate-400">当前为真实数据源聚合 + 规则打分，后面可继续换成 AI 精评分。</p>
             </div>
           </div>
           <div className="grid gap-4">
@@ -123,7 +127,7 @@ export default function Home() {
           <div className="rounded-[24px] border border-white/8 bg-white/4 p-6">
             <div className="mb-4">
               <h2 className="text-2xl font-bold tracking-[-0.03em]">今日荒谬由什么构成？</h2>
-              <p className="mt-2 text-slate-400">不是每种离谱都一样，有的是制度问题，有的是现实像段子。</p>
+              <p className="mt-2 text-slate-400">这里先展示榜首事件的维度分解，方便你快速校准评分逻辑。</p>
             </div>
             <div className="grid gap-4">
               {dimensions.map(([name, value]) => (
@@ -144,7 +148,7 @@ export default function Home() {
           <div id="trend" className="rounded-[24px] border border-white/8 bg-white/4 p-6">
             <div className="mb-4">
               <h2 className="text-2xl font-bold tracking-[-0.03em]">过去 7 天，世界正常过吗？</h2>
-              <p className="mt-2 text-slate-400">从波动曲线看，答案显然是不太稳定。</p>
+              <p className="mt-2 text-slate-400">当前趋势为根据今日榜单生成的占位走势，后面接数据库后可变成真实历史。</p>
             </div>
             <div className="flex h-[240px] items-end gap-3 pt-3">
               {today.trend.map((value, index) => (
@@ -164,8 +168,8 @@ export default function Home() {
         </section>
 
         <footer className="px-1 pt-10 pb-4 text-center text-sm leading-7 text-slate-400">
-          本网站不保证世界会恢复正常，只保证把离谱量化给你看。<br />
-          下一步可以直接把页面改成 JSON 驱动的服务端数据版，再接 AI 打分和真实新闻源。
+          当前已接入真实来源：Hacker News + Google News RSS。<br />
+          下一步最值得做的是：接 AI 精评分、持久化历史数据、生成分享图。
         </footer>
       </div>
     </main>
