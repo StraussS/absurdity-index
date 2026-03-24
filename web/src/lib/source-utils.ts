@@ -1,4 +1,7 @@
 import * as cheerio from "cheerio";
+import { createHash } from "node:crypto";
+import { mkdir, readFile, writeFile } from "node:fs/promises";
+import path from "node:path";
 import { AbsurdityItem } from "@/lib/absurdity";
 import { scoreSeedItems } from "@/lib/ai-scoring";
 
@@ -7,6 +10,7 @@ export type SourceSeedItem = {
   link: string;
   source: string;
   pubDate?: string | number;
+  originalTitle?: string;
 };
 
 export async function fetchJson<T>(url: string, init?: RequestInit): Promise<T> {
@@ -60,6 +64,8 @@ export function formatTime(input?: string | number) {
   return date.toLocaleTimeString("zh-CN", { hour: "2-digit", minute: "2-digit", hour12: false });
 }
 
+const TRANSLATION_CACHE_DIR = path.join(process.cwd(), "data", "translation-cache");
+
 function looksLikeTechnicalMemeTitle(title: string) {
   return /(curl\s*>\s*\/dev\/sda|wget\s*\|\s*dd|rm\s+-rf|\bShow HN\b|\bAsk HN\b|\bLaunch HN\b|\|\s*dd\b)/i.test(title);
 }
@@ -71,8 +77,97 @@ function isPublicFriendlyTitle(title: string) {
   return true;
 }
 
+function looksNonChineseTitle(title: string) {
+  const hasChinese = /[\u4e00-\u9fff]/.test(title);
+  const hasLatin = /[A-Za-z]/.test(title);
+  return !hasChinese && hasLatin;
+}
+
+function translationCachePath(seed: SourceSeedItem) {
+  const key = createHash("sha1").update(`${seed.source}\n${seed.title}`).digest("hex");
+  return path.join(TRANSLATION_CACHE_DIR, `${key}.json`);
+}
+
+async function loadTranslationCache(seed: SourceSeedItem) {
+  try {
+    const raw = await readFile(translationCachePath(seed), "utf8");
+    const parsed = JSON.parse(raw) as { translated_title?: string };
+    return parsed.translated_title?.trim() || null;
+  } catch {
+    return null;
+  }
+}
+
+async function saveTranslationCache(seed: SourceSeedItem, translatedTitle: string) {
+  await mkdir(TRANSLATION_CACHE_DIR, { recursive: true });
+  await writeFile(
+    translationCachePath(seed),
+    JSON.stringify({ source: seed.source, title: seed.title, translated_title: translatedTitle }, null, 2),
+    "utf8",
+  );
+}
+
+async function translateTitle(seed: SourceSeedItem) {
+  if (!looksNonChineseTitle(seed.title)) return seed;
+
+  const cached = await loadTranslationCache(seed);
+  if (cached) {
+    return { ...seed, originalTitle: seed.title, title: cached };
+  }
+
+  const baseUrl = process.env.AI_SCORING_BASE_URL;
+  const apiKey = process.env.AI_SCORING_API_KEY;
+  const model = process.env.AI_SCORING_MODEL;
+  if (!baseUrl || !apiKey || !model) return seed;
+
+  try {
+    const response = await fetch(`${baseUrl.replace(/\/$/, "")}/chat/completions`, {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+        authorization: `Bearer ${apiKey}`,
+      },
+      body: JSON.stringify({
+        model,
+        temperature: 0.2,
+        response_format: { type: "json_object" },
+        messages: [
+          {
+            role: "system",
+            content: [
+              "你是新闻标题翻译编辑。",
+              "把英文新闻标题翻译成自然、简洁、适合中文资讯站展示的中文标题。",
+              "不要解释，不要加评论，不要扩写，不要保留英文括号补充。",
+              "专有名词按常见中文译法处理。",
+              "只输出 JSON。格式：{\"title_zh\":\"中文标题\"}",
+            ].join("\n"),
+          },
+          {
+            role: "user",
+            content: JSON.stringify({ source: seed.source, title: seed.title }),
+          },
+        ],
+      }),
+    });
+
+    if (!response.ok) return seed;
+    const data = (await response.json()) as { choices?: Array<{ message?: { content?: string } }> };
+    const raw = data.choices?.[0]?.message?.content;
+    if (!raw) return seed;
+    const parsed = JSON.parse(raw) as { title_zh?: string };
+    const titleZh = parsed.title_zh?.trim();
+    if (!titleZh) return seed;
+    await saveTranslationCache(seed, titleZh);
+    return { ...seed, originalTitle: seed.title, title: titleZh };
+  } catch {
+    return seed;
+  }
+}
+
 export async function toAbsurdityItems(items: SourceSeedItem[], prefix: string): Promise<AbsurdityItem[]> {
-  return scoreSeedItems(items.filter((item) => isPublicFriendlyTitle(item.title)), prefix);
+  const filtered = items.filter((item) => isPublicFriendlyTitle(item.title));
+  const translated = await Promise.all(filtered.map((item) => translateTitle(item)));
+  return scoreSeedItems(translated, prefix);
 }
 
 export function parseRssItems(xml: string, source: string): SourceSeedItem[] {

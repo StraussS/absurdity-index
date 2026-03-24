@@ -1,6 +1,6 @@
 {
   "date": "2026-03-24",
-  "daily_index": 91,
+  "daily_index": 86,
   "level": "高危荒谬",
   "summary": "今天建议少刷热搜，多喝水，保护理智。",
   "keywords": [
@@ -95,7 +95,7 @@
     },
     {
       "id": "hn-1-TGl0ZUxM",
-      "title": "LiteLLM Python package compromised by supply-chain attack",
+      "title": "LiteLLM Python 包遭供应链攻击入侵",
       "source": "Hacker News",
       "sources": [
         "Hacker News"
@@ -104,19 +104,18 @@
       "time": "20:36",
       "category": [
         "供应链安全",
-        "开源生态风险",
-        "开发者工具",
-        "跨境网络安全"
+        "开源依赖风险",
+        "软件安全事件"
       ],
       "score": 88,
-      "comment": "装包这件事也开始带毒了",
-      "reason": "标题直接指向 Python 包被供应链攻击污染，荒谬在于最日常的安装动作可能变成风险入口。开源工具越基础，影响面越大，离谱也就越系统。",
+      "comment": "连安装包都不安全了",
+      "reason": "标题指向 Python 包在供应链环节被入侵，离“用户主动安装却引入风险”只差一步。最荒谬的是攻击点不在应用本身，而在开发者默认信任的依赖链上。",
       "dimensions": {
-        "反常识": 86,
-        "黑色幽默": 72,
+        "反常识": 84,
+        "黑色幽默": 62,
         "系统性离谱": 91,
-        "传播戏剧性": 79,
-        "赛博浓度": 97
+        "传播戏剧性": 73,
+        "赛博浓度": 96
       },
       "url": "https://github.com/BerriAI/litellm/issues/24512",
       "scoring_mode": "cache"
@@ -147,8 +146,141 @@
       },
       "url": "https://view.inews.qq.com/a/20260324A060TO00",
       "scoring_mode": "cache"
+    },
+    {
+      "id": "ithome-0-6Iux5Lyf",
+      "title": "英伟达黄仁勋：我希望在工作中突然死去，等时机成熟会把意识作为 AI 发射到太空",
+      "source": "IT之家",
+      "sources": [
+        "IT之家"
+      ],
+      "source_count": 1,
+      "time": "22:30",
+      "category": [
+        "科技人物极端表态",
+        "意识上传想象",
+        "太空叙事"
+      ],
+      "score": 84,
+      "comment": "把死亡都外包给AI了",
+      "reason": "标题把“工作中突然死去”“意识作为AI发射到太空”连成一体，已经不是普通金句，而是把生命、技术和宇宙想象一次性推到极限。荒谬感主要来自这种过度宏大的自我设计，像把科幻设想直接拿来当人生说明书。",
+      "dimensions": {
+        "反常识": 88,
+        "黑色幽默": 72,
+        "系统性离谱": 46,
+        "传播戏剧性": 91,
+        "赛博浓度": 97
+      },
+      "url": "https://www.ithome.com/0/932/275.htm",
+      "scoring_mode": "cache"
+    },
+    {
+      "id": "toutiao-3-6YeR5q2j",
+      "title": "金正恩正式将韩国定义为头号敌国",
+      "source": "今日头条",
+      "sources": [
+        "今日头条"
+      ],
+      "source_count": 1,
+      "time": "--:--",
+      "category": [
+        "地缘政治",
+        "敌我叙事",
+        "半岛对峙"
+      ],
+      "score": 84,
+      "comment": "敌国定义，半岛又紧了一格",
+      "reason": "标题本身已经说明这是一次公开升级的敌我表述，把韩国直接定为“头号敌国”，对峙意味非常重。荒谬感不在于细节，而在于这种把现实关系压缩成单一敌对标签的表态，几乎只会让局势更硬。",
+      "dimensions": {
+        "反常识": 78,
+        "黑色幽默": 68,
+        "系统性离谱": 89,
+        "传播戏剧性": 82,
+        "赛博浓度": 22
+      },
+      "url": "https://www.toutiao.com/trending/7620671150137593382/",
+      "scoring_mode": "cache"
+    },
+    {
+      "id": "sspai-4-5LuK5aSc",
+      "title": "今夜，大模型从世界消散",
+      "source": "少数派",
+      "sources": [
+        "少数派"
+      ],
+      "source_count": 1,
+      "time": "--:--",
+      "category": [
+        "技术终局想象",
+        "媒体标题夸张"
+      ],
+      "score": 84,
+      "comment": "标题像把互联网关机了",
+      "reason": "“今夜”“从世界消散”把一个技术话题写成了末日宣告，跨度太大，像在给现实按暂停键。若标题只是借势渲染，那它的荒谬主要不在内容，而在这种一上来就要清空世界的语气。",
+      "dimensions": {
+        "反常识": 78,
+        "黑色幽默": 72,
+        "系统性离谱": 69,
+        "传播戏剧性": 91,
+        "赛博浓度": 95
+      },
+      "url": "https://sspai.com/post/106939",
+      "scoring_mode": "cache"
+    },
+    {
+      "id": "wallstreetcn-4-576O5Zu9",
+      "title": "美国白宫AI事务主管David Sacks在华盛顿特区科技论坛上讲话，为总统特朗普“允许向海湾地区多个国家出口销售芯片”的计划辩解。",
+      "source": "华尔街见闻",
+      "sources": [
+        "华尔街见闻"
+      ],
+      "source_count": 1,
+      "time": "05:56",
+      "category": [
+        "科技地缘政治",
+        "政策辩护"
+      ],
+      "score": 78,
+      "comment": "芯片出口，先过政治这一关",
+      "reason": "标题里是白宫AI事务主管替总统辩解芯片出口计划，说明技术问题已经被地缘政治和贸易算计包住了。卖芯片本该谈产能和规则，现在先讲立场，荒谬感主要来自决策逻辑的倒置。",
+      "dimensions": {
+        "反常识": 76,
+        "黑色幽默": 58,
+        "系统性离谱": 81,
+        "传播戏剧性": 69,
+        "赛博浓度": 87
+      },
+      "url": "https://wallstreetcn.com/livenews/3076046",
+      "scoring_mode": "cache"
+    },
+    {
+      "id": "ithome-4-5a2Y5YKo",
+      "title": "存储器价格过高，AYANEO 全面暂停锐龙 AI Max 掌机 NEXT 2 预售",
+      "source": "IT之家",
+      "sources": [
+        "IT之家"
+      ],
+      "source_count": 1,
+      "time": "22:15",
+      "category": [
+        "成本失控",
+        "消费电子延期",
+        "供应链波动"
+      ],
+      "score": 76,
+      "comment": "先卖概念，内存先劝退",
+      "reason": "标题里最荒谬的点不是产品本身，而是掌机预售被存储器价格直接按下暂停键，说明硬件定价已经被上游成本牵着走。对一台主打“锐龙 AI Max”的赛博掌机来说，最先卡住的居然是内存，不太像发布会，像供应链在现场接管了项目。",
+      "dimensions": {
+        "反常识": 72,
+        "黑色幽默": 58,
+        "系统性离谱": 81,
+        "传播戏剧性": 67,
+        "赛博浓度": 90
+      },
+      "url": "https://www.ithome.com/0/932/271.htm",
+      "scoring_mode": "cache"
     }
   ],
-  "saved_at": "2026-03-24T14:52:56.004Z",
+  "saved_at": "2026-03-24T15:17:39.348Z",
   "share_image": "/share/2026-03-24.svg"
 }
