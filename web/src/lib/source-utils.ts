@@ -1,6 +1,6 @@
 import * as cheerio from "cheerio";
 import { AbsurdityItem } from "@/lib/absurdity";
-import { scoreTitle } from "@/lib/absurdity";
+import { scoreSeedItems } from "@/lib/ai-scoring";
 
 export type SourceSeedItem = {
   title: string;
@@ -60,22 +60,8 @@ export function formatTime(input?: string | number) {
   return date.toLocaleTimeString("zh-CN", { hour: "2-digit", minute: "2-digit", hour12: false });
 }
 
-export function toAbsurdityItems(items: SourceSeedItem[], prefix: string): AbsurdityItem[] {
-  return items.map((item, index) => {
-    const scored = scoreTitle(item.title);
-    return {
-      id: `${prefix}-${index}-${Buffer.from(item.title).toString("base64").slice(0, 8)}`,
-      title: item.title,
-      source: item.source,
-      time: formatTime(item.pubDate),
-      category: scored.categories,
-      score: scored.score,
-      comment: scored.comment,
-      reason: scored.reason,
-      dimensions: scored.dimensions,
-      url: item.link,
-    } satisfies AbsurdityItem;
-  });
+export async function toAbsurdityItems(items: SourceSeedItem[], prefix: string): Promise<AbsurdityItem[]> {
+  return scoreSeedItems(items, prefix);
 }
 
 export function parseRssItems(xml: string, source: string): SourceSeedItem[] {

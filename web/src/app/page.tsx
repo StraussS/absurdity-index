@@ -99,7 +99,7 @@ export default async function Home() {
           <div className="rounded-[22px] border border-white/8 bg-white/4 p-6">
             <div className="mb-3 text-xs uppercase tracking-[0.22em] text-slate-400">最荒谬领域</div>
             <div className="mb-2 text-4xl font-black">{today.keywords.slice(0, 2).join(" / ") || "魔幻现实"}</div>
-            <div className="text-sm leading-6 text-slate-300">当前数据支持源级开关与去重聚合，来源包括 百度热搜、微博热搜（可选）、IT之家、36氪、澎湃、华尔街见闻、头条、少数派、腾讯新闻、Google News RSS、Hacker News。</div>
+            <div className="text-sm leading-6 text-slate-300">当前数据支持源级开关、去重聚合，以及可选 AI 精评分；来源包括 百度热搜、微博热搜（可选）、IT之家、36氪、澎湃、华尔街见闻、头条、少数派、腾讯新闻、Google News RSS、Hacker News。</div>
           </div>
           <div className="rounded-[22px] border border-white/8 bg-white/4 p-6">
             <div className="mb-3 text-xs uppercase tracking-[0.22em] text-slate-400">今日关键词</div>
