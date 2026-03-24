@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>今日荒谬指数</title>
+  <style>
+    :root {
+      --bg: #071018;
+      --panel: rgba(10, 20, 30, 0.72);
+      --panel-2: rgba(13, 27, 39, 0.88);
+      --line: rgba(117, 255, 191, 0.18);
+      --text: #e7fff5;
+      --muted: #8fb7aa;
+      --green: #72ffbf;
+      --cyan: #6fe9ff;
+      --orange: #ffb347;
+      --red: #ff5f6d;
+      --shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+      --radius: 24px;
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(114,255,191,0.08), transparent 32%),
+        radial-gradient(circle at top right, rgba(111,233,255,0.08), transparent 28%),
+        linear-gradient(180deg, #050b11, #09131b 35%, #060d14 100%);
+      color: var(--text);
+    }
+
+    .container {
+      width: min(1200px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 32px 0 56px;
+    }
+
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 28px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      letter-spacing: 0.2px;
+    }
+
+    .brand-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--green), var(--cyan));
+      box-shadow: 0 0 18px rgba(114,255,191,0.8);
+    }
+
+    .topbar-meta {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 24px;
+      margin-bottom: 22px;
+    }
+
+    .card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(18px);
+    }
+
+    .hero-main {
+      padding: 34px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-main::after {
+      content: "";
+      position: absolute;
+      inset: auto -40px -40px auto;
+      width: 220px;
+      height: 220px;
+      background: radial-gradient(circle, rgba(114,255,191,0.18), transparent 66%);
+      pointer-events: none;
+    }
+
+    .kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--green);
+      font-size: 13px;
+      letter-spacing: 1.4px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    h1 {
+      font-size: clamp(40px, 6vw, 68px);
+      line-height: 1.02;
+      margin: 0 0 14px;
+      letter-spacing: -1.6px;
+    }
+
+    .subtitle {
+      font-size: 20px;
+      color: #d4f8ea;
+      max-width: 620px;
+      line-height: 1.6;
+      margin-bottom: 24px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .btn {
+      border: 1px solid rgba(114,255,191,0.28);
+      padding: 12px 18px;
+      border-radius: 999px;
+      text-decoration: none;
+      color: var(--text);
+      font-weight: 600;
+      background: rgba(114,255,191,0.06);
+    }
+
+    .btn.secondary {
+      background: rgba(255,255,255,0.03);
+      border-color: rgba(255,255,255,0.08);
+      color: var(--muted);
+    }
+
+    .hero-side {
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 18px;
+    }
+
+    .gauge-label {
+      color: var(--muted);
+      font-size: 14px;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+    }
+
+    .gauge-value {
+      font-size: 108px;
+      line-height: 0.95;
+      font-weight: 900;
+      color: var(--green);
+      text-shadow: 0 0 24px rgba(114,255,191,0.22);
+    }
+
+    .status-pill {
+      align-self: flex-start;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(255,95,109,0.12);
+      color: #ffd7dc;
+      border: 1px solid rgba(255,95,109,0.2);
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    .hero-note {
+      color: #d8f6ea;
+      line-height: 1.7;
+      font-size: 15px;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-bottom: 26px;
+    }
+
+    .stat-card {
+      padding: 22px;
+    }
+
+    .label {
+      color: var(--muted);
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 10px;
+    }
+
+    .stat-value {
+      font-size: 34px;
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
+
+    .delta.up { color: var(--orange); }
+    .tags { display: flex; flex-wrap: wrap; gap: 8px; }
+    .tag {
+      padding: 7px 10px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.04);
+      color: #d0ece2;
+      border: 1px solid rgba(255,255,255,0.06);
+      font-size: 13px;
+    }
+
+    .section {
+      margin-top: 32px;
+    }
+
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      align-items: end;
+      margin-bottom: 18px;
+    }
+
+    .section-title {
+      font-size: 28px;
+      margin: 0 0 6px;
+    }
+
+    .section-desc {
+      color: var(--muted);
+      margin: 0;
+      line-height: 1.6;
+    }
+
+    .news-list {
+      display: grid;
+      gap: 16px;
+    }
+
+    .news-card {
+      padding: 22px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 18px;
+    }
+
+    .news-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+
+    .chip {
+      font-size: 12px;
+      color: #cdeee1;
+      background: rgba(114,255,191,0.08);
+      border: 1px solid rgba(114,255,191,0.14);
+      padding: 6px 10px;
+      border-radius: 999px;
+    }
+
+    .news-title {
+      font-size: 22px;
+      line-height: 1.35;
+      margin: 0 0 10px;
+    }
+
+    .news-comment {
+      color: #effff9;
+      margin: 10px 0;
+      font-size: 16px;
+    }
+
+    .news-reason {
+      color: var(--muted);
+      line-height: 1.75;
+      font-size: 15px;
+      margin: 0;
+    }
+
+    .score-box {
+      min-width: 152px;
+      text-align: center;
+      padding: 18px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.06);
+      align-self: start;
+    }
+
+    .score-box .score {
+      font-size: 54px;
+      font-weight: 900;
+      color: var(--orange);
+      line-height: 1;
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      margin-top: 28px;
+    }
+
+    .panel {
+      padding: 24px;
+    }
+
+    .bars {
+      display: grid;
+      gap: 14px;
+      margin-top: 12px;
+    }
+
+    .bar-row {
+      display: grid;
+      grid-template-columns: 110px 1fr 40px;
+      gap: 12px;
+      align-items: center;
+      color: #dbfff2;
+      font-size: 14px;
+    }
+
+    .bar-track {
+      height: 10px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.06);
+      overflow: hidden;
+    }
+
+    .bar-fill {
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--cyan), var(--green), var(--orange));
+      box-shadow: 0 0 18px rgba(114,255,191,0.2);
+    }
+
+    .trend {
+      margin-top: 16px;
+      display: flex;
+      align-items: end;
+      gap: 10px;
+      height: 220px;
+    }
+
+    .trend-col {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .trend-bar {
+      width: 100%;
+      border-radius: 16px 16px 6px 6px;
+      background: linear-gradient(180deg, rgba(111,233,255,0.88), rgba(114,255,191,0.22));
+      border: 1px solid rgba(114,255,191,0.14);
+      min-height: 18px;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.14);
+    }
+
+    .trend-value {
+      font-size: 13px;
+      color: #dffef0;
+      font-weight: 700;
+    }
+
+    .trend-day {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .footer {
+      margin-top: 34px;
+      padding: 22px 4px 6px;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.7;
+      text-align: center;
+    }
+
+    @media (max-width: 980px) {
+      .hero, .two-col, .stats { grid-template-columns: 1fr; }
+      .news-card { grid-template-columns: 1fr; }
+      .gauge-value { font-size: 86px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="topbar">
+      <div class="brand"><span class="brand-dot"></span> 今日荒谬指数</div>
+      <div class="topbar-meta">2026-03-24 · 世界异常监控台</div>
+    </div>
+
+    <section class="hero">
+      <div class="card hero-main">
+        <div class="kicker">Absurdity Monitor</div>
+        <h1>今天的世界，<br>离谱到几分？</h1>
+        <div class="subtitle">
+          我们抓取每天最像段子、最反常识、最有赛博荒诞感的事件，
+          用一个不太严肃但相当认真的指数，把现实的抽象程度量化给你看。
+        </div>
+        <div class="hero-actions">
+          <a class="btn" href="#top5">查看今日 TOP 5</a>
+          <a class="btn secondary" href="#trend">查看历史趋势</a>
+        </div>
+      </div>
+
+      <div class="card hero-side">
+        <div class="gauge-label">今日荒谬指数</div>
+        <div class="gauge-value">87</div>
+        <div class="status-pill">高危荒谬</div>
+        <div class="hero-note">
+          今天建议少刷手机，多喝水，保护理智。<br>
+          本日异常主要集中在 AI 流程、平台逻辑和现实反转。
+        </div>
+      </div>
+    </section>
+
+    <section class="stats">
+      <div class="card stat-card">
+        <div class="label">总指数</div>
+        <div class="stat-value">87 / 100</div>
+        <div class="delta up">较昨日 +12 · 离谱升级</div>
+      </div>
+      <div class="card stat-card">
+        <div class="label">最荒谬领域</div>
+        <div class="stat-value">AI / 科技</div>
+        <div class="section-desc">今天最离谱的事主要集中在自动化、监控和平台机制。</div>
+      </div>
+      <div class="card stat-card">
+        <div class="label">今日关键词</div>
+        <div class="tags">
+          <span class="tag">AI自动化</span>
+          <span class="tag">热搜反转</span>
+          <span class="tag">赛博流程</span>
+          <span class="tag">魔幻现实</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="top5">
+      <div class="section-head">
+        <div>
+          <h2 class="section-title">今天最离谱的 5 件事</h2>
+          <p class="section-desc">以下内容全部真实感十足，只是现实最近越来越像虚构作品。</p>
+        </div>
+      </div>
+
+      <div class="news-list">
+        <article class="card news-card">
+          <div>
+            <div class="news-meta">
+              <span class="chip">热搜样例</span>
+              <span class="chip">AI</span>
+              <span class="chip">职场</span>
+              <span class="chip">09:20</span>
+            </div>
+            <h3 class="news-title">某公司要求员工先用 AI 写周报，再让主管用 AI 审核 AI 写的周报</h3>
+            <p class="news-comment">人类终于在流程里彻底失去了存在感。</p>
+            <p class="news-reason">这件事同时具备流程荒诞、技术滥用和现实反转，像段子，但 unfortunately 真的可能发生。</p>
+          </div>
+          <div class="score-box">
+            <div class="label">荒谬分</div>
+            <div class="score">91</div>
+            <div class="section-desc">高危荒谬</div>
+          </div>
+        </article>
+
+        <article class="card news-card">
+          <div>
+            <div class="news-meta">
+              <span class="chip">社交平台样例</span>
+              <span class="chip">办公</span>
+              <span class="chip">监控</span>
+              <span class="chip">10:05</span>
+            </div>
+            <h3 class="news-title">为了防止摸鱼，团队上线了一个自动监测员工是否在认真工作的自动化系统</h3>
+            <p class="news-comment">他们为了提高效率，先创造了一套更低效的系统。</p>
+            <p class="news-reason">试图用更复杂的流程解决人性问题，结果先把系统本身做成了一个笑话。</p>
+          </div>
+          <div class="score-box">
+            <div class="label">荒谬分</div>
+            <div class="score">88</div>
+            <div class="section-desc">高危荒谬</div>
+          </div>
+        </article>
+
+        <article class="card news-card">
+          <div>
+            <div class="news-meta">
+              <span class="chip">科技社区样例</span>
+              <span class="chip">AI</span>
+              <span class="chip">抽象互联网</span>
+              <span class="chip">11:10</span>
+            </div>
+            <h3 class="news-title">网友用三个 AI 套娃互相讨论，最后生成了一份谁都没看懂的共识文档</h3>
+            <p class="news-comment">信息没有增加，但 token 确实燃烧得很充分。</p>
+            <p class="news-reason">技术展示欲和表达失控叠加，最后产物只剩形式感。</p>
+          </div>
+          <div class="score-box">
+            <div class="label">荒谬分</div>
+            <div class="score">85</div>
+            <div class="section-desc">高危荒谬</div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="two-col">
+      <div class="card panel">
+        <div class="section-head">
+          <div>
+            <h2 class="section-title">今日荒谬由什么构成？</h2>
+            <p class="section-desc">不是每种离谱都一样，有的是制度问题，有的是现实像段子。</p>
+          </div>
+        </div>
+        <div class="bars">
+          <div class="bar-row"><span>反常识</span><div class="bar-track"><div class="bar-fill" style="width:92%"></div></div><strong>92</strong></div>
+          <div class="bar-row"><span>黑色幽默</span><div class="bar-track"><div class="bar-fill" style="width:78%"></div></div><strong>78</strong></div>
+          <div class="bar-row"><span>系统性离谱</span><div class="bar-track"><div class="bar-fill" style="width:95%"></div></div><strong>95</strong></div>
+          <div class="bar-row"><span>传播戏剧性</span><div class="bar-track"><div class="bar-fill" style="width:84%"></div></div><strong>84</strong></div>
+          <div class="bar-row"><span>赛博浓度</span><div class="bar-track"><div class="bar-fill" style="width:96%"></div></div><strong>96</strong></div>
+        </div>
+      </div>
+
+      <div class="card panel" id="trend">
+        <div class="section-head">
+          <div>
+            <h2 class="section-title">过去 7 天，世界正常过吗？</h2>
+            <p class="section-desc">从波动曲线看，答案显然是不太稳定。</p>
+          </div>
+        </div>
+        <div class="trend">
+          <div class="trend-col"><div class="trend-value">62</div><div class="trend-bar" style="height:62%"></div><div class="trend-day">一</div></div>
+          <div class="trend-col"><div class="trend-value">71</div><div class="trend-bar" style="height:71%"></div><div class="trend-day">二</div></div>
+          <div class="trend-col"><div class="trend-value">89</div><div class="trend-bar" style="height:89%"></div><div class="trend-day">三</div></div>
+          <div class="trend-col"><div class="trend-value">77</div><div class="trend-bar" style="height:77%"></div><div class="trend-day">四</div></div>
+          <div class="trend-col"><div class="trend-value">83</div><div class="trend-bar" style="height:83%"></div><div class="trend-day">五</div></div>
+          <div class="trend-col"><div class="trend-value">68</div><div class="trend-bar" style="height:68%"></div><div class="trend-day">六</div></div>
+          <div class="trend-col"><div class="trend-value">87</div><div class="trend-bar" style="height:87%"></div><div class="trend-day">今</div></div>
+        </div>
+      </div>
+    </section>
+
+    <div class="footer">
+      本网站不保证世界会恢复正常，只保证把离谱量化给你看。<br>
+      下一步可直接把页面改成 JSON 驱动，接上 AI 打分和真实新闻源。
+    </div>
+  </div>
+</body>
+</html>
