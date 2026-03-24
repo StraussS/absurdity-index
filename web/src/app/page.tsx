@@ -127,7 +127,7 @@ export default async function Home() {
           <div className="mb-5 flex flex-col gap-2 md:flex-row md:items-end md:justify-between">
             <div>
               <h2 className="text-3xl font-bold tracking-[-0.03em]">今天最离谱的 5 件事</h2>
-              <p className="mt-2 text-slate-400">当前为中文热搜 + 科技资讯聚合 + 规则打分，后面可继续换成 AI 精评分。</p>
+              <p className="mt-2 text-slate-400">把今天最值得看的几件离谱事收拢在一起，省得你被满屏信息拖着跑。</p>
             </div>
           </div>
           <div className="grid gap-4">
