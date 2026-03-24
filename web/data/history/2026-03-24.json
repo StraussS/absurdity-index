@@ -1,44 +1,15 @@
 {
   "date": "2026-03-24",
-  "daily_index": 84,
+  "daily_index": 85,
   "level": "高危荒谬",
   "summary": "今天建议少刷热搜，多喝水，保护理智。",
   "keywords": [
-    "财务预期反差",
-    "地产叙事回弹",
-    "市场信号失真",
-    "财务预期"
+    "外交越界",
+    "身份冒用",
+    "安全失序",
+    "财报反转"
   ],
   "top_items": [
-    {
-      "id": "kr-3-5L2z5YWG",
-      "title": "佳兆业集团：预期2025年录得公司拥有人应占溢利不少于500亿元",
-      "source": "36氪 / 华尔街见闻",
-      "sources": [
-        "36氪",
-        "华尔街见闻"
-      ],
-      "source_count": 2,
-      "time": "17分钟前",
-      "category": [
-        "财务预期反差",
-        "地产叙事回弹",
-        "市场信号失真",
-        "财务预期"
-      ],
-      "score": 96,
-      "comment": "这预期像从平行宇宙发来的",
-      "reason": "标题里的“预期2025年录得公司拥有人应占溢利不少于500亿元”与佳兆业近年的市场处境形成强烈反差，数字本身就极具冲击力。荒谬点不在于结论是否一定不可能，而在于这种级别的盈利预告会天然触发对行业、公司和信息可信度的集体审视。",
-      "dimensions": {
-        "反常识": 94,
-        "黑色幽默": 82,
-        "系统性离谱": 91,
-        "传播戏剧性": 88,
-        "赛博浓度": 12
-      },
-      "url": "https://www.36kr.com/newsflashes/3736898935865609",
-      "scoring_mode": "cache"
-    },
     {
       "id": "thepaper-4-6Ieq56ew",
       "title": "自称日本自卫队现役官员强闯中国驻日本大使馆，外交部：严正交涉，强烈抗议",
@@ -64,6 +35,33 @@
         "赛博浓度": 12
       },
       "url": "https://www.thepaper.cn/newsDetail_forward_32819700",
+      "scoring_mode": "cache"
+    },
+    {
+      "id": "wallstreetcn-5-5L2z5YWG",
+      "title": "佳兆业集团在港交所公告称，预计2025年录得公司拥有人应佔溢利不少于500亿元人民币，2024年净亏损285亿元人民币。",
+      "source": "华尔街见闻",
+      "sources": [
+        "华尔街见闻"
+      ],
+      "source_count": 1,
+      "time": "22:03",
+      "category": [
+        "财报反转",
+        "地产重组",
+        "港交所公告"
+      ],
+      "score": 92,
+      "comment": "去年巨亏，今年先赚五百亿",
+      "reason": "同一家公司的2024年净亏损还是285亿元，公告却预计2025年将录得不少于500亿元溢利，反差大到像换了一个财务宇宙。如此剧烈翻转只靠“预计”二字兜底，荒谬感主要来自数字本身。",
+      "dimensions": {
+        "反常识": 95,
+        "黑色幽默": 78,
+        "系统性离谱": 90,
+        "传播戏剧性": 72,
+        "赛博浓度": 35
+      },
+      "url": "https://wallstreetcn.com/livenews/3075983",
       "scoring_mode": "cache"
     },
     {
@@ -94,7 +92,35 @@
       "scoring_mode": "cache"
     },
     {
-      "id": "baidu-1-5Lit5pa5",
+      "id": "hn-1-TGl0ZUxM",
+      "title": "LiteLLM Python package compromised by supply-chain attack",
+      "source": "Hacker News",
+      "sources": [
+        "Hacker News"
+      ],
+      "source_count": 1,
+      "time": "20:36",
+      "category": [
+        "供应链安全",
+        "开源生态风险",
+        "开发者工具",
+        "跨境网络安全"
+      ],
+      "score": 88,
+      "comment": "装包这件事也开始带毒了",
+      "reason": "标题直接指向 Python 包被供应链攻击污染，荒谬在于最日常的安装动作可能变成风险入口。开源工具越基础，影响面越大，离谱也就越系统。",
+      "dimensions": {
+        "反常识": 86,
+        "黑色幽默": 72,
+        "系统性离谱": 91,
+        "传播戏剧性": 79,
+        "赛博浓度": 97
+      },
+      "url": "https://github.com/BerriAI/litellm/issues/24512",
+      "scoring_mode": "cache"
+    },
+    {
+      "id": "baidu-3-5Lit5pa5",
       "title": "中方回应日本自卫队人员闯驻日使馆",
       "source": "百度热搜",
       "sources": [
@@ -117,6 +143,33 @@
         "赛博浓度": 18
       },
       "url": "https://www.baidu.com/s?wd=%E4%B8%AD%E6%96%B9%E5%9B%9E%E5%BA%94%E6%97%A5%E6%9C%AC%E8%87%AA%E5%8D%AB%E9%98%9F%E4%BA%BA%E5%91%98%E9%97%AF%E9%A9%BB%E6%97%A5%E4%BD%BF%E9%A6%86",
+      "scoring_mode": "cache"
+    },
+    {
+      "id": "toutiao-4-5YWs5Lqk",
+      "title": "公交印“贞洁是最高贵的嫁妆”引争议",
+      "source": "今日头条",
+      "sources": [
+        "今日头条"
+      ],
+      "source_count": 1,
+      "time": "--:--",
+      "category": [
+        "公共宣传越界",
+        "性别观念争议",
+        "城市广告失当"
+      ],
+      "score": 86,
+      "comment": "把公交车当婚恋说教板了",
+      "reason": "公交车是公共空间，却印上带有强烈道德规训意味的标语，容易让人觉得宣传对象和场景都不对路。争议不在于“敢不敢说”，而在于把私人观念塞进公共载体，显得既冒犯又别扭。",
+      "dimensions": {
+        "反常识": 88,
+        "黑色幽默": 52,
+        "系统性离谱": 81,
+        "传播戏剧性": 74,
+        "赛博浓度": 18
+      },
+      "url": "https://www.toutiao.com/trending/7620743490097119283/",
       "scoring_mode": "cache"
     },
     {
@@ -147,33 +200,6 @@
       "scoring_mode": "cache"
     },
     {
-      "id": "toutiao-4-5Y+w4oCc",
-      "title": "台“百亿赌王”林秉文在柬遭枪杀身亡",
-      "source": "今日头条",
-      "sources": [
-        "今日头条"
-      ],
-      "source_count": 1,
-      "time": "--:--",
-      "category": [
-        "跨境黑帮",
-        "暴力结局",
-        "博彩江湖"
-      ],
-      "score": 84,
-      "comment": "赌桌上的账，最后在柬埔寨结算",
-      "reason": "标题把“百亿赌王”和“柬遭枪杀”并列，已经不是单纯的新闻反转，而是典型的博彩江湖暴力收尾。人物身份、跨境地点和死亡方式叠在一起，荒谬感主要来自这种现实版黑帮叙事。",
-      "dimensions": {
-        "反常识": 78,
-        "黑色幽默": 52,
-        "系统性离谱": 69,
-        "传播戏剧性": 86,
-        "赛博浓度": 18
-      },
-      "url": "https://www.toutiao.com/trending/7620666624894746675/",
-      "scoring_mode": "cache"
-    },
-    {
       "id": "sspai-4-5LuK5aSc",
       "title": "今夜，大模型从世界消散",
       "source": "少数派",
@@ -197,6 +223,33 @@
         "赛博浓度": 95
       },
       "url": "https://sspai.com/post/106939",
+      "scoring_mode": "cache"
+    },
+    {
+      "id": "baidu-1-5pen5omL",
+      "title": "旧手机回收一天一个价",
+      "source": "百度热搜",
+      "sources": [
+        "百度热搜"
+      ],
+      "source_count": 1,
+      "time": "--:--",
+      "category": [
+        "二手交易",
+        "价格波动",
+        "消费循环"
+      ],
+      "score": 74,
+      "comment": "旧手机也开始按日炒作",
+      "reason": "标题里“一天一个价”说明旧手机回收价格波动很快，原本低价值、标准化的二手回收变成了追着行情跑的生意。荒谬不在手机旧，而在连回收都像在做短线交易。",
+      "dimensions": {
+        "反常识": 62,
+        "黑色幽默": 38,
+        "系统性离谱": 71,
+        "传播戏剧性": 55,
+        "赛博浓度": 49
+      },
+      "url": "https://www.baidu.com/s?wd=%E6%97%A7%E6%89%8B%E6%9C%BA%E5%9B%9E%E6%94%B6%E4%B8%80%E5%A4%A9%E4%B8%80%E4%B8%AA%E4%BB%B7",
       "scoring_mode": "cache"
     },
     {
@@ -225,63 +278,8 @@
       },
       "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE0xZ21DRFBNZDlFb0pWRXNTRHYzamdiTTk1MGdadTZOZmZuRklVTzc5UlU0bnZEN0R1bWRxc0NTSkVxUVFqdUdoRkROOUIyLXlnUUJOak1hblFQZXMteDEtWGhQSGMwVUk?oc=5",
       "scoring_mode": "cache"
-    },
-    {
-      "id": "baidu-0-5aSW5Lqk",
-      "title": "外交部回应日方拟将中日关系降级",
-      "source": "百度热搜 / 今日头条",
-      "sources": [
-        "百度热搜",
-        "今日头条"
-      ],
-      "source_count": 2,
-      "time": "--:--",
-      "category": [
-        "外交博弈",
-        "关系降温",
-        "外交表态",
-        "表态与预期落差"
-      ],
-      "score": 72,
-      "comment": "关系说降级就降级了",
-      "reason": "标题里是“日方拟将中日关系降级”，说明外交关系被直接放进了可操作的等级表。外交部被动回应这种表述，本身就透着一种冷冰冰的现实感：关系不是口号，真能被降，也真能被说降。",
-      "dimensions": {
-        "反常识": 58,
-        "黑色幽默": 46,
-        "系统性离谱": 71,
-        "传播戏剧性": 78,
-        "赛博浓度": 12
-      },
-      "url": "https://www.baidu.com/s?wd=%E5%A4%96%E4%BA%A4%E9%83%A8%E5%9B%9E%E5%BA%94%E6%97%A5%E6%96%B9%E6%8B%9F%E5%B0%86%E4%B8%AD%E6%97%A5%E5%85%B3%E7%B3%BB%E9%99%8D%E7%BA%A7",
-      "scoring_mode": "cache"
-    },
-    {
-      "id": "baidu-4-56ys5LiA",
-      "title": "第一次看懂中文是因为看懂了英文",
-      "source": "百度热搜",
-      "sources": [
-        "百度热搜"
-      ],
-      "source_count": 1,
-      "time": "--:--",
-      "category": [
-        "语言认知",
-        "叙事反转"
-      ],
-      "score": 72,
-      "comment": "中文先靠英文开窍了",
-      "reason": "标题把“看懂中文”的前提写成“先看懂英文”，逻辑上形成明显反转，读起来像认知绕口令。它的荒谬不在事实本身，而在这种自我解释式的标题结构，让人一眼觉得不太对劲。",
-      "dimensions": {
-        "反常识": 78,
-        "黑色幽默": 46,
-        "系统性离谱": 18,
-        "传播戏剧性": 84,
-        "赛博浓度": 22
-      },
-      "url": "https://www.baidu.com/s?wd=%E7%AC%AC%E4%B8%80%E6%AC%A1%E7%9C%8B%E6%87%82%E4%B8%AD%E6%96%87%E6%98%AF%E5%9B%A0%E4%B8%BA%E7%9C%8B%E6%87%82%E4%BA%86%E8%8B%B1%E6%96%87",
-      "scoring_mode": "cache"
     }
   ],
-  "saved_at": "2026-03-24T12:27:19.582Z",
+  "saved_at": "2026-03-24T13:06:58.787Z",
   "share_image": "/share/2026-03-24.svg"
 }
