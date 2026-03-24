@@ -1,6 +1,6 @@
 {
   "date": "2026-03-24",
-  "daily_index": 85,
+  "daily_index": 90,
   "level": "高危荒谬",
   "summary": "今天建议少刷热搜，多喝水，保护理智。",
   "keywords": [
@@ -144,142 +144,8 @@
       },
       "url": "https://www.baidu.com/s?wd=%E4%B8%AD%E6%96%B9%E5%9B%9E%E5%BA%94%E6%97%A5%E6%9C%AC%E8%87%AA%E5%8D%AB%E9%98%9F%E4%BA%BA%E5%91%98%E9%97%AF%E9%A9%BB%E6%97%A5%E4%BD%BF%E9%A6%86",
       "scoring_mode": "cache"
-    },
-    {
-      "id": "toutiao-4-5YWs5Lqk",
-      "title": "公交印“贞洁是最高贵的嫁妆”引争议",
-      "source": "今日头条",
-      "sources": [
-        "今日头条"
-      ],
-      "source_count": 1,
-      "time": "--:--",
-      "category": [
-        "公共宣传越界",
-        "性别观念争议",
-        "城市广告失当"
-      ],
-      "score": 86,
-      "comment": "把公交车当婚恋说教板了",
-      "reason": "公交车是公共空间，却印上带有强烈道德规训意味的标语，容易让人觉得宣传对象和场景都不对路。争议不在于“敢不敢说”，而在于把私人观念塞进公共载体，显得既冒犯又别扭。",
-      "dimensions": {
-        "反常识": 88,
-        "黑色幽默": 52,
-        "系统性离谱": 81,
-        "传播戏剧性": 74,
-        "赛博浓度": 18
-      },
-      "url": "https://www.toutiao.com/trending/7620743490097119283/",
-      "scoring_mode": "cache"
-    },
-    {
-      "id": "toutiao-3-6YeR5q2j",
-      "title": "金正恩正式将韩国定义为头号敌国",
-      "source": "今日头条",
-      "sources": [
-        "今日头条"
-      ],
-      "source_count": 1,
-      "time": "--:--",
-      "category": [
-        "地缘政治",
-        "敌我叙事",
-        "半岛对峙"
-      ],
-      "score": 84,
-      "comment": "敌国定义，半岛又紧了一格",
-      "reason": "标题本身已经说明这是一次公开升级的敌我表述，把韩国直接定为“头号敌国”，对峙意味非常重。荒谬感不在于细节，而在于这种把现实关系压缩成单一敌对标签的表态，几乎只会让局势更硬。",
-      "dimensions": {
-        "反常识": 78,
-        "黑色幽默": 68,
-        "系统性离谱": 89,
-        "传播戏剧性": 82,
-        "赛博浓度": 22
-      },
-      "url": "https://www.toutiao.com/trending/7620671150137593382/",
-      "scoring_mode": "cache"
-    },
-    {
-      "id": "sspai-4-5LuK5aSc",
-      "title": "今夜，大模型从世界消散",
-      "source": "少数派",
-      "sources": [
-        "少数派"
-      ],
-      "source_count": 1,
-      "time": "--:--",
-      "category": [
-        "技术终局想象",
-        "媒体标题夸张"
-      ],
-      "score": 84,
-      "comment": "标题像把互联网关机了",
-      "reason": "“今夜”“从世界消散”把一个技术话题写成了末日宣告，跨度太大，像在给现实按暂停键。若标题只是借势渲染，那它的荒谬主要不在内容，而在这种一上来就要清空世界的语气。",
-      "dimensions": {
-        "反常识": 78,
-        "黑色幽默": 72,
-        "系统性离谱": 69,
-        "传播戏剧性": 91,
-        "赛博浓度": 95
-      },
-      "url": "https://sspai.com/post/106939",
-      "scoring_mode": "cache"
-    },
-    {
-      "id": "baidu-1-5pen5omL",
-      "title": "旧手机回收一天一个价",
-      "source": "百度热搜",
-      "sources": [
-        "百度热搜"
-      ],
-      "source_count": 1,
-      "time": "--:--",
-      "category": [
-        "二手交易",
-        "价格波动",
-        "消费循环"
-      ],
-      "score": 74,
-      "comment": "旧手机也开始按日炒作",
-      "reason": "标题里“一天一个价”说明旧手机回收价格波动很快，原本低价值、标准化的二手回收变成了追着行情跑的生意。荒谬不在手机旧，而在连回收都像在做短线交易。",
-      "dimensions": {
-        "反常识": 62,
-        "黑色幽默": 38,
-        "系统性离谱": 71,
-        "传播戏剧性": 55,
-        "赛博浓度": 49
-      },
-      "url": "https://www.baidu.com/s?wd=%E6%97%A7%E6%89%8B%E6%9C%BA%E5%9B%9E%E6%94%B6%E4%B8%80%E5%A4%A9%E4%B8%80%E4%B8%AA%E4%BB%B7",
-      "scoring_mode": "cache"
-    },
-    {
-      "id": "rss-2-QmVoaW5k",
-      "title": "Behind the Curtain: America's next class war will be over AI fluency - Axios",
-      "source": "Google News Tech",
-      "sources": [
-        "Google News Tech"
-      ],
-      "source_count": 1,
-      "time": "18:13",
-      "category": [
-        "技术阶层分化",
-        "教育资源焦虑",
-        "未来叙事过热"
-      ],
-      "score": 73,
-      "comment": "先别阶级战争，先补AI课",
-      "reason": "标题把“AI fluency”直接抬成美国下一场阶级冲突的分界线，荒谬感在于技术能力被迅速道德化、身份化。它未必错，但把培训差异讲成阶层大战，多少有点提前给未来社会写悼词。",
-      "dimensions": {
-        "反常识": 68,
-        "黑色幽默": 55,
-        "系统性离谱": 82,
-        "传播戏剧性": 76,
-        "赛博浓度": 91
-      },
-      "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE0xZ21DRFBNZDlFb0pWRXNTRHYzamdiTTk1MGdadTZOZmZuRklVTzc5UlU0bnZEN0R1bWRxc0NTSkVxUVFqdUdoRkROOUIyLXlnUUJOak1hblFQZXMteDEtWGhQSGMwVUk?oc=5",
-      "scoring_mode": "cache"
     }
   ],
-  "saved_at": "2026-03-24T13:19:45.766Z",
+  "saved_at": "2026-03-24T13:31:01.621Z",
   "share_image": "/share/2026-03-24.svg"
 }
