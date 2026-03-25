@@ -36,6 +36,9 @@ export default async function StatusPage() {
             <Link href="/history" className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-slate-200 hover:bg-white/8">
               查看历史归档
             </Link>
+            <Link href="/methodology" className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-slate-200 hover:bg-white/8">
+              查看指数说明
+            </Link>
             <a href="/api/status" target="_blank" rel="noreferrer" className="rounded-full border border-cyan-300/20 bg-cyan-300/10 px-4 py-2 text-sm text-cyan-100 hover:bg-cyan-300/15">
               打开状态 JSON
             </a>

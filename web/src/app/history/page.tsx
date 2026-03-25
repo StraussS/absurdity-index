@@ -42,6 +42,9 @@ export default async function HistoryPage() {
             <Link href="/status" className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-slate-200 hover:bg-white/8">
               查看项目状态
             </Link>
+            <Link href="/methodology" className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-slate-200 hover:bg-white/8">
+              查看指数说明
+            </Link>
           </div>
         </div>
 

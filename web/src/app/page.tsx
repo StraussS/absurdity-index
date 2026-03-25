@@ -91,6 +91,9 @@ export default async function Home() {
               <Link href="/status" className="rounded-full border border-white/10 bg-white/4 px-5 py-3 text-sm font-semibold text-slate-200 transition hover:bg-white/8">
                 查看项目状态
               </Link>
+              <Link href="/methodology" className="rounded-full border border-white/10 bg-white/4 px-5 py-3 text-sm font-semibold text-slate-200 transition hover:bg-white/8">
+                查看指数说明
+              </Link>
               <a href={`/share/${today.date}.svg`} target="_blank" rel="noreferrer" className="rounded-full border border-cyan-300/20 bg-cyan-300/10 px-5 py-3 text-sm font-semibold text-cyan-100 transition hover:bg-cyan-300/15">
                 查看今日分享图
               </a>
