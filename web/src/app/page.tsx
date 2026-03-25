@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { explainDailyScore, explainTopItem } from "@/lib/explain";
 import { getTodayData } from "@/lib/sources";
 
 const trendDays = ["一", "二", "三", "四", "五", "六", "今"];
@@ -53,6 +54,8 @@ export default async function Home() {
   const today = await getTodayData();
   const lead = today.top_items[0];
   const dimensions = lead ? Object.entries(lead.dimensions) : [];
+  const explanation = explainDailyScore(today);
+  const leadExplanation = explainTopItem(today);
 
   return (
     <main className="min-h-screen bg-[radial-gradient(circle_at_top_left,rgba(114,255,191,0.08),transparent_28%),radial-gradient(circle_at_top_right,rgba(111,233,255,0.08),transparent_24%),linear-gradient(180deg,#050b11,#09131b_36%,#060d14_100%)] text-white">
@@ -113,9 +116,12 @@ export default async function Home() {
             <div className="text-sm text-amber-300">实时聚合 · 多源评分</div>
           </div>
           <div className="rounded-[22px] border border-white/8 bg-white/4 p-6">
-            <div className="mb-3 text-xs uppercase tracking-[0.22em] text-slate-400">最荒谬领域</div>
-            <div className="mb-2 text-4xl font-black">{today.keywords.slice(0, 2).join(" / ") || "魔幻现实"}</div>
-            <div className="text-sm leading-6 text-slate-300">每天挑出最值得看的几件离谱事，尽量用更清晰、更克制的方式，把现实的荒诞感整理给你看。</div>
+            <div className="mb-3 text-xs uppercase tracking-[0.22em] text-slate-400">主要拉分维度</div>
+            <div className="mb-2 text-3xl font-black md:text-4xl">
+              {explanation.primary?.key ?? "反常识"}
+              {explanation.secondary ? ` / ${explanation.secondary.key}` : ""}
+            </div>
+            <div className="text-sm leading-6 text-slate-300">{explanation.why}</div>
           </div>
           <div className="rounded-[22px] border border-white/8 bg-white/4 p-6">
             <div className="mb-3 text-xs uppercase tracking-[0.22em] text-slate-400">今日关键词</div>
@@ -126,6 +132,67 @@ export default async function Home() {
                 </span>
               ))}
             </div>
+          </div>
+        </section>
+
+        <section className="mb-8 grid gap-5 lg:grid-cols-[1.05fr_0.95fr]">
+          <div className="rounded-[24px] border border-white/8 bg-white/4 p-6">
+            <div className="mb-4">
+              <h2 className="text-2xl font-bold tracking-[-0.03em]">为什么今天是这个分数？</h2>
+              <p className="mt-2 text-slate-400">把今天入榜事件的维度平均后，先看看到底是哪几种“离谱感”把总指数顶上去了。</p>
+            </div>
+            <div className="grid gap-3">
+              {explanation.ranked.map((item) => (
+                <div key={item.key} className="grid grid-cols-[110px_1fr_42px] items-center gap-3 text-sm md:grid-cols-[130px_1fr_42px]">
+                  <span className="text-emerald-50">{item.key}</span>
+                  <div className="h-3 overflow-hidden rounded-full bg-white/8">
+                    <div className="h-full rounded-full bg-[linear-gradient(90deg,#6fe9ff,#72ffbf,#ffb347)]" style={{ width: `${item.value}%` }} />
+                  </div>
+                  <strong className="text-right text-emerald-50">{item.value}</strong>
+                </div>
+              ))}
+            </div>
+            <div className="mt-5 rounded-[20px] border border-white/8 bg-black/15 p-4 text-sm leading-7 text-slate-300">
+              {explanation.primary ? (
+                <>
+                  <div className="font-semibold text-white">主导维度：{explanation.primary.key}</div>
+                  <div className="mt-2">{explanation.descriptions[explanation.primary.key]}</div>
+                  {explanation.secondary ? <div className="mt-3">第二拉分项是「{explanation.secondary.key}」，说明这批事件不只是怪，还特别容易扩散成公共话题。</div> : null}
+                </>
+              ) : (
+                <div>今天的数据还不够多，暂时无法生成解释。</div>
+              )}
+            </div>
+          </div>
+
+          <div className="rounded-[24px] border border-white/8 bg-white/4 p-6">
+            <div className="mb-4">
+              <h2 className="text-2xl font-bold tracking-[-0.03em]">为什么榜首排第一？</h2>
+              <p className="mt-2 text-slate-400">不是单纯因为它分高，而是它在最关键的几项离谱维度上同时冲了出来。</p>
+            </div>
+            {leadExplanation ? (
+              <>
+                <div className="rounded-[20px] border border-white/8 bg-black/15 p-4">
+                  <div className="text-xs uppercase tracking-[0.18em] text-slate-400">今日榜首</div>
+                  <h3 className="mt-2 text-xl leading-8 font-semibold text-white">{leadExplanation.lead.title}</h3>
+                  <p className="mt-3 text-sm leading-7 text-slate-300">{leadExplanation.summary}</p>
+                </div>
+                <div className="mt-4 grid gap-3 md:grid-cols-3">
+                  {leadExplanation.ranked.slice(0, 3).map((item, index) => (
+                    <div key={item.key} className="rounded-[18px] border border-white/8 bg-white/4 p-4">
+                      <div className="text-xs uppercase tracking-[0.18em] text-slate-400">TOP {index + 1}</div>
+                      <div className="mt-2 text-lg font-bold text-white">{item.key}</div>
+                      <div className="mt-1 text-3xl font-black text-amber-300">{item.value}</div>
+                    </div>
+                  ))}
+                </div>
+                <div className="mt-4 text-sm leading-7 text-slate-300">
+                  这条事件的高分不是单点偏高，而是多个维度同时在线，所以它会比普通热搜更像“当天气氛代表”。
+                </div>
+              </>
+            ) : (
+              <div className="text-sm text-slate-400">暂时还没有榜首事件解释。</div>
+            )}
           </div>
         </section>
 
