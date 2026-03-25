@@ -12,7 +12,7 @@ async function ScoreCard({ item }: { item: Awaited<ReturnType<typeof getTodayDat
           <span className="rounded-full border border-emerald-300/15 bg-emerald-300/8 px-3 py-1">{item.source}</span>
           {item.source_count && item.source_count > 1 ? (
             <span className="rounded-full border border-cyan-300/15 bg-cyan-300/8 px-3 py-1 text-cyan-100">
-              多方来源 · {item.source_count} 条线索
+              同事件聚类 · {item.source_count} 个来源
             </span>
           ) : null}
           {item.category.map((cat) => (
