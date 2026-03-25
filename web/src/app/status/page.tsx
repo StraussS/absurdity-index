@@ -54,8 +54,8 @@ export default async function StatusPage() {
 
         <section className="mb-8 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
           <StatCard label="抓取总条数" value={status.pipeline.merged_count} hint="所有已启用 source 合并后的原始条目数" />
-          <StatCard label="去重后条数" value={status.pipeline.deduped_count} hint={`最终入榜 ${status.pipeline.final_count} 条`} />
-          <StatCard label="AI / Cache / Rule" value={`${status.pipeline.ai_count} / ${status.pipeline.cache_count} / ${status.pipeline.rule_count}`} hint="入榜事件的评分来源分布" />
+          <StatCard label="聚类后条数" value={status.pipeline.deduped_count} hint={`折叠了 ${status.pipeline.collapsed_count} 条重复/同事件内容`} />
+          <StatCard label="聚类事件数" value={status.pipeline.clustered_count} hint={`最终入榜 ${status.pipeline.final_count} 条`} />
           <StatCard label="失败 source" value={status.pipeline.failed_sources.length} hint={status.pipeline.failed_sources.length > 0 ? "本轮有 source 报错" : "本轮 source 全部成功"} />
         </section>
 
@@ -117,7 +117,8 @@ export default async function StatusPage() {
                 <div className="flex items-center justify-between"><span>远程源配置</span><strong className="text-white">{status.sources.remote_config ? "已配置" : "未配置"}</strong></div>
                 <div className="flex items-center justify-between"><span>AI Base URL</span><strong className="text-white">{status.ai.base_url_configured ? "已配置" : "未配置"}</strong></div>
                 <div className="flex items-center justify-between"><span>AI Model</span><strong className="text-white">{status.ai.model_configured ? "已配置" : "未配置"}</strong></div>
-                <div className="flex items-center justify-between"><span>多源聚合事件</span><strong className="text-white">{status.pipeline.multi_source_count}</strong></div>
+                <div className="flex items-center justify-between"><span>AI / Cache / Rule</span><strong className="text-white">{`${status.pipeline.ai_count} / ${status.pipeline.cache_count} / ${status.pipeline.rule_count}`}</strong></div>
+                <div className="flex items-center justify-between"><span>多来源聚类事件</span><strong className="text-white">{status.pipeline.multi_source_count}</strong></div>
               </div>
               {status.sources.remote_config_url ? (
                 <div className="mt-4 break-all rounded-2xl border border-white/8 bg-black/15 p-3 text-xs leading-6 text-slate-400">

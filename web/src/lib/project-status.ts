@@ -66,6 +66,8 @@ export async function getProjectStatus() {
       merged_count: pipeline.metrics.merged_count,
       deduped_count: pipeline.metrics.deduped_count,
       final_count: pipeline.metrics.final_count,
+      clustered_count: pipeline.metrics.clustered_count,
+      collapsed_count: pipeline.metrics.collapsed_count,
       ai_count: pipeline.metrics.ai_count,
       cache_count: pipeline.metrics.cache_count,
       rule_count: pipeline.metrics.rule_count,

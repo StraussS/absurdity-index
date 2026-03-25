@@ -22,6 +22,8 @@ export type PipelineMetrics = {
   merged_count: number;
   deduped_count: number;
   final_count: number;
+  clustered_count: number;
+  collapsed_count: number;
   ai_count: number;
   cache_count: number;
   rule_count: number;
@@ -82,6 +84,8 @@ export async function runTodayPipeline(): Promise<{ data: DailyAbsurdity; metric
           merged_count: merged.length,
           deduped_count: deduped.length,
           final_count: 0,
+          clustered_count: 0,
+          collapsed_count: 0,
           ai_count: 0,
           cache_count: 0,
           rule_count: 0,
@@ -112,6 +116,8 @@ export async function runTodayPipeline(): Promise<{ data: DailyAbsurdity; metric
         merged_count: merged.length,
         deduped_count: deduped.length,
         final_count: finalItems.length,
+        clustered_count: deduped.filter((item) => (item.source_count ?? 1) > 1).length,
+        collapsed_count: Math.max(0, merged.length - deduped.length),
         ai_count: finalItems.filter((item) => item.scoring_mode === "ai").length,
         cache_count: finalItems.filter((item) => item.scoring_mode === "cache").length,
         rule_count: finalItems.filter((item) => (item.scoring_mode ?? "rule") === "rule").length,
@@ -130,6 +136,8 @@ export async function runTodayPipeline(): Promise<{ data: DailyAbsurdity; metric
         merged_count: 0,
         deduped_count: 0,
         final_count: 0,
+        clustered_count: 0,
+        collapsed_count: 0,
         ai_count: 0,
         cache_count: 0,
         rule_count: 0,
