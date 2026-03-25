@@ -1,6 +1,7 @@
 import { access } from "node:fs/promises";
 import path from "node:path";
 import { listHistorySnapshots } from "@/lib/history";
+import { runTodayPipeline } from "@/lib/pipeline";
 import { getSourceRegistry } from "@/lib/source-registry";
 
 async function fileExists(filePath: string) {
@@ -13,7 +14,7 @@ async function fileExists(filePath: string) {
 }
 
 export async function getProjectStatus() {
-  const [registry, snapshots] = await Promise.all([getSourceRegistry(), listHistorySnapshots()]);
+  const [registry, snapshots, pipeline] = await Promise.all([getSourceRegistry(), listHistorySnapshots(), runTodayPipeline()]);
   const latest = snapshots[0] ?? null;
 
   const webRoot = process.cwd();
@@ -57,6 +58,20 @@ export async function getProjectStatus() {
       latest_index: latest?.daily_index ?? null,
       latest_level: latest?.level ?? null,
       latest_share_image: latest?.share_image ?? null,
+    },
+    pipeline: {
+      mode: pipeline.metrics.mode,
+      generated_at: pipeline.metrics.generated_at,
+      enabled_sources: pipeline.metrics.enabled_sources,
+      merged_count: pipeline.metrics.merged_count,
+      deduped_count: pipeline.metrics.deduped_count,
+      final_count: pipeline.metrics.final_count,
+      ai_count: pipeline.metrics.ai_count,
+      cache_count: pipeline.metrics.cache_count,
+      rule_count: pipeline.metrics.rule_count,
+      multi_source_count: pipeline.metrics.multi_source_count,
+      failed_sources: pipeline.metrics.sources.filter((item) => !item.ok).map((item) => ({ key: item.key, label: item.label, error: item.error ?? "unknown" })),
+      source_runs: pipeline.metrics.sources,
     },
     routes: {
       home: "/",

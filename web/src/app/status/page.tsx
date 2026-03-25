@@ -49,28 +49,42 @@ export default async function StatusPage() {
           <StatCard label="状态文档" value={status.docs.status_doc_exists ? "已存在" : "缺失"} hint="项目总览文档是否已补齐" />
         </section>
 
+        <section className="mb-8 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+          <StatCard label="抓取总条数" value={status.pipeline.merged_count} hint="所有已启用 source 合并后的原始条目数" />
+          <StatCard label="去重后条数" value={status.pipeline.deduped_count} hint={`最终入榜 ${status.pipeline.final_count} 条`} />
+          <StatCard label="AI / Cache / Rule" value={`${status.pipeline.ai_count} / ${status.pipeline.cache_count} / ${status.pipeline.rule_count}`} hint="入榜事件的评分来源分布" />
+          <StatCard label="失败 source" value={status.pipeline.failed_sources.length} hint={status.pipeline.failed_sources.length > 0 ? "本轮有 source 报错" : "本轮 source 全部成功"} />
+        </section>
+
         <section className="mb-8 grid gap-5 lg:grid-cols-[1.15fr_0.85fr]">
           <div className="rounded-[24px] border border-white/8 bg-white/4 p-6">
             <div className="mb-4">
               <h2 className="text-2xl font-bold tracking-[-0.03em]">数据源启用情况</h2>
-              <p className="mt-2 text-slate-400">先确认网站每天靠哪些源在供血，也方便排查为什么某天内容突然变少。</p>
+              <p className="mt-2 text-slate-400">现在不只看开没开，还能看到这一轮每个 source 实际抓到了多少条、有没有报错。</p>
             </div>
             <div className="grid gap-3">
-              {status.sources.items.map((item) => (
-                <div key={item.key} className="flex items-center justify-between rounded-2xl border border-white/8 bg-white/4 px-4 py-3">
-                  <div>
-                    <div className="font-semibold text-white">{item.label}</div>
-                    <div className="mt-1 text-xs text-slate-400">
-                      key: {item.key} · limit: {item.limit} · 默认{item.enabledByDefault ? "开启" : "关闭"}
+              {status.pipeline.source_runs.map((item) => (
+                <div key={item.key} className="rounded-2xl border border-white/8 bg-white/4 px-4 py-3">
+                  <div className="flex items-center justify-between gap-3">
+                    <div>
+                      <div className="font-semibold text-white">{item.label}</div>
+                      <div className="mt-1 text-xs text-slate-400">
+                        key: {item.key} · limit: {item.requested_limit}
+                      </div>
+                    </div>
+                    <div
+                      className={`rounded-full px-3 py-1 text-xs font-semibold ${
+                        item.ok ? "border border-emerald-300/15 bg-emerald-300/10 text-emerald-100" : "border border-rose-300/15 bg-rose-300/10 text-rose-100"
+                      }`}
+                    >
+                      {item.ok ? "成功" : "失败"}
                     </div>
                   </div>
-                  <div
-                    className={`rounded-full px-3 py-1 text-xs font-semibold ${
-                      item.enabled ? "border border-emerald-300/15 bg-emerald-300/10 text-emerald-100" : "border border-white/8 bg-white/5 text-slate-300"
-                    }`}
-                  >
-                    {item.enabled ? "启用中" : "已关闭"}
+                  <div className="mt-3 flex items-center justify-between text-sm text-slate-300">
+                    <span>抓取条数</span>
+                    <strong className="text-white">{item.fetched_count}</strong>
                   </div>
+                  {item.error ? <div className="mt-2 text-xs leading-6 text-rose-200/90">{item.error}</div> : null}
                 </div>
               ))}
             </div>
@@ -83,6 +97,7 @@ export default async function StatusPage() {
                 <div className="flex items-center justify-between"><span>最新日期</span><strong className="text-white">{status.history.latest_date ?? "--"}</strong></div>
                 <div className="flex items-center justify-between"><span>最新指数</span><strong className="text-amber-300">{status.history.latest_index ?? "--"}</strong></div>
                 <div className="flex items-center justify-between"><span>最新等级</span><strong className="text-white">{status.history.latest_level ?? "--"}</strong></div>
+                <div className="flex items-center justify-between"><span>生成模式</span><strong className="text-white">{status.pipeline.mode}</strong></div>
               </div>
               {status.history.latest_share_image ? (
                 <a href={status.history.latest_share_image} target="_blank" rel="noreferrer" className="mt-5 inline-block text-sm text-cyan-300 underline underline-offset-4">
@@ -99,12 +114,22 @@ export default async function StatusPage() {
                 <div className="flex items-center justify-between"><span>远程源配置</span><strong className="text-white">{status.sources.remote_config ? "已配置" : "未配置"}</strong></div>
                 <div className="flex items-center justify-between"><span>AI Base URL</span><strong className="text-white">{status.ai.base_url_configured ? "已配置" : "未配置"}</strong></div>
                 <div className="flex items-center justify-between"><span>AI Model</span><strong className="text-white">{status.ai.model_configured ? "已配置" : "未配置"}</strong></div>
+                <div className="flex items-center justify-between"><span>多源聚合事件</span><strong className="text-white">{status.pipeline.multi_source_count}</strong></div>
               </div>
               {status.sources.remote_config_url ? (
                 <div className="mt-4 break-all rounded-2xl border border-white/8 bg-black/15 p-3 text-xs leading-6 text-slate-400">
                   remote config: {status.sources.remote_config_url}
                 </div>
               ) : null}
+              {status.pipeline.failed_sources.length > 0 ? (
+                <div className="mt-4 rounded-2xl border border-rose-300/15 bg-rose-300/8 p-3 text-xs leading-6 text-rose-100">
+                  失败 source：{status.pipeline.failed_sources.map((item: { label: string }) => item.label).join("、")}
+                </div>
+              ) : (
+                <div className="mt-4 rounded-2xl border border-emerald-300/15 bg-emerald-300/8 p-3 text-xs leading-6 text-emerald-100">
+                  这轮所有已启用 source 都成功返回了结果。
+                </div>
+              )}
             </div>
           </div>
         </section>
