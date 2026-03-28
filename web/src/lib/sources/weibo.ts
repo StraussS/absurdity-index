@@ -1,6 +1,6 @@
 import { fetchJson, toAbsurdityItems, SourceSeedItem } from "@/lib/source-utils";
 
-const WEIBO_API_URL = "http://collie.fun:4399/v2/weibo";
+const WEIBO_API_URL = process.env.WEIBO_API_URL || "";
 
 type WeiboApiResponse = {
   code?: number;
@@ -24,6 +24,10 @@ function parseWeiboItems(payload: WeiboApiResponse): SourceSeedItem[] {
 }
 
 export async function fetchWeiboItems(limit = 10) {
+  if (!WEIBO_API_URL) {
+    return [];
+  }
+
   const payload = await fetchJson<WeiboApiResponse>(WEIBO_API_URL);
   return toAbsurdityItems(parseWeiboItems(payload).slice(0, limit), "weibo");
 }

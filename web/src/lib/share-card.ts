@@ -101,7 +101,7 @@ export async function generateShareCard(data: DailyAbsurdity) {
   ${rankingSvg}
 
   <text x="68" y="1372" font-size="22" font-weight="700" fill="#6B7280">${escapeXml(lead?.comment ? clampText(lead.comment, 18) : "现实有时比段子更会写段子")}</text>
-  <text x="68" y="1410" font-size="18" font-weight="700" fill="#9CA3AF">collie.cc</text>
+  <text x="68" y="1410" font-size="18" font-weight="700" fill="#9CA3AF">absurdity-index</text>
 </svg>`;
 
   await writeFile(filePath, svg.trim(), "utf8");

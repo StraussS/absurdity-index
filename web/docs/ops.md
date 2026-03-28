@@ -28,7 +28,7 @@ Suggested schedule example:
 
 ## Optional environment variables
 
-- 微博热搜默认通过 `http://collie.fun:4399/v2/weibo` 抓取，无需额外 `WEIBO_COOKIE`
+- `WEIBO_API_URL`：可选的微博热搜接口地址；未配置时会跳过该数据源
 - `ABSURDITY_ENABLED_SOURCES`
 - `ABSURDITY_DISABLED_SOURCES`
 - `ABSURDITY_SOURCE_LIMITS`
