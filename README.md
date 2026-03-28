@@ -32,6 +32,20 @@ absurdity-index/
    └─ .env.example           # 环境变量示例
 ```
 
+## Screenshots
+
+### Home
+
+![Home](./docs/screenshots/home.png)
+
+### Status
+
+![Status](./docs/screenshots/status.png)
+
+### Methodology
+
+![Methodology](./docs/screenshots/methodology.png)
+
 ## Main features
 
 ### 首页
@@ -163,4 +177,4 @@ pm2 start npm --name absurdity-index -- start
 
 ## License
 
-当前未指定开源许可证。如需公开开源，建议补充 MIT 或 Apache-2.0。
+MIT. See [LICENSE](./LICENSE).
