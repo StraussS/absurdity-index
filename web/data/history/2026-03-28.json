@@ -1,0 +1,286 @@
+{
+  "date": "2026-03-28",
+  "daily_index": 82,
+  "level": "高危荒谬",
+  "summary": "今天建议少刷热搜，多喝水，保护理智。",
+  "keywords": [
+    "跨国执法争议",
+    "程序正义",
+    "涉外舆情",
+    "涉外执法争议"
+  ],
+  "top_items": [
+    {
+      "id": "thepaper-2-5Lit5Zu9",
+      "title": "中国博士后在遭美方约谈盘问后自杀，外交部：敦促美方彻查此案，停止炮制冤假错案",
+      "source": "澎湃新闻",
+      "sources": [
+        "澎湃新闻",
+        "腾讯新闻"
+      ],
+      "source_count": 2,
+      "time": "11:59",
+      "category": [
+        "跨国执法争议",
+        "程序正义",
+        "涉外舆情",
+        "涉外执法争议"
+      ],
+      "score": 87,
+      "comment": "盘问到人命，程序先崩了",
+      "reason": "标题把“约谈盘问”与“自杀”直接并置，指向的是极严重的执法程序和人身保护问题，荒谬感不在情绪，而在结果的不可逆。再加上外交部要求彻查，说明这已不是个案叙事，而是典型的跨境争议事件。",
+      "dimensions": {
+        "反常识": 92,
+        "黑色幽默": 18,
+        "系统性离谱": 84,
+        "传播戏剧性": 76,
+        "赛博浓度": 6
+      },
+      "url": "https://www.thepaper.cn/newsDetail_forward_32842798",
+      "scoring_mode": "cache"
+    },
+    {
+      "id": "ithome-5-6L6T5LqG",
+      "title": "输了官司不爽？马斯克嘲讽 84 岁法官：他穿成这样我怎能获得公正审判",
+      "source": "IT之家",
+      "sources": [
+        "IT之家"
+      ],
+      "source_count": 1,
+      "time": "10:33",
+      "category": [
+        "名人发言失控",
+        "司法场景讽刺"
+      ],
+      "score": 84,
+      "comment": "输了官司，先怼法官穿搭",
+      "reason": "标题里最荒谬的不是输官司本身，而是把司法公正争议，转成对法官穿着的嘲讽。名人对法庭结果的不满被包装成“审判公正”问题，戏剧性很强，也很难不让人觉得是在拿制度出气。",
+      "dimensions": {
+        "反常识": 86,
+        "黑色幽默": 78,
+        "系统性离谱": 55,
+        "传播戏剧性": 90,
+        "赛博浓度": 68
+      },
+      "url": "https://www.ithome.com/0/933/561.htm",
+      "scoring_mode": "cache"
+    },
+    {
+      "id": "sspai-5-5LuK5aSc",
+      "title": "今夜，大模型从世界消散",
+      "source": "少数派",
+      "sources": [
+        "少数派"
+      ],
+      "source_count": 1,
+      "time": "--:--",
+      "category": [
+        "技术终局想象",
+        "媒体标题夸张"
+      ],
+      "score": 84,
+      "comment": "标题像把互联网关机了",
+      "reason": "“今夜”“从世界消散”把一个技术话题写成了末日宣告，跨度太大，像在给现实按暂停键。若标题只是借势渲染，那它的荒谬主要不在内容，而在这种一上来就要清空世界的语气。",
+      "dimensions": {
+        "反常识": 78,
+        "黑色幽默": 72,
+        "系统性离谱": 69,
+        "传播戏剧性": 91,
+        "赛博浓度": 95
+      },
+      "url": "https://sspai.com/post/106939",
+      "scoring_mode": "cache"
+    },
+    {
+      "id": "baidu-6-55S35a2Q",
+      "title": "男子结婚遭家暴 身高1米8不敢回家",
+      "source": "百度热搜",
+      "sources": [
+        "百度热搜"
+      ],
+      "source_count": 1,
+      "time": "--:--",
+      "category": [
+        "家庭暴力",
+        "性别角色反转",
+        "社会议题"
+      ],
+      "score": 82,
+      "comment": "1米8也得躲着回家",
+      "reason": "标题里最刺眼的不是身高，而是“结婚后遭家暴”与“不敢回家”的并置：家庭本该是避风处，却成了需要回避的地方。它荒谬在于把一种本应被认真处理的暴力关系，压缩成了一个反差极强却又沉重的社会现实。",
+      "dimensions": {
+        "反常识": 88,
+        "黑色幽默": 35,
+        "系统性离谱": 79,
+        "传播戏剧性": 74,
+        "赛博浓度": 18
+      },
+      "url": "https://www.baidu.com/s?wd=%E7%94%B7%E5%AD%90%E7%BB%93%E5%A9%9A%E9%81%AD%E5%AE%B6%E6%9A%B4+%E8%BA%AB%E9%AB%981%E7%B1%B38%E4%B8%8D%E6%95%A2%E5%9B%9E%E5%AE%B6",
+      "scoring_mode": "cache"
+    },
+    {
+      "id": "ithome-1-5oql6YGT",
+      "title": "报道称开源免版税视频压缩格式 AV1 深陷专利侵权泥潭",
+      "source": "IT之家",
+      "sources": [
+        "IT之家"
+      ],
+      "source_count": 1,
+      "time": "10:57",
+      "category": [
+        "开源协议风险",
+        "专利争议",
+        "技术标准博弈"
+      ],
+      "score": 82,
+      "comment": "开源免版税，官司不免版税",
+      "reason": "标题里的核心冲突很直接：号称“开源免版税”的视频格式，却被卷进专利侵权争议，逻辑上天然别扭。更荒谬的是，这类标准之争往往不是技术先赢，而是谁先把路修成法律战场。",
+      "dimensions": {
+        "反常识": 74,
+        "黑色幽默": 62,
+        "系统性离谱": 85,
+        "传播戏剧性": 78,
+        "赛博浓度": 90
+      },
+      "url": "https://www.ithome.com/0/933/566.htm",
+      "scoring_mode": "cache"
+    },
+    {
+      "id": "kr-4-5Zac5Li0",
+      "title": "喜临门：控股子公司1亿元资金被非法划转 9亿元账户被保护性冻结",
+      "source": "36氪",
+      "sources": [
+        "36氪"
+      ],
+      "source_count": 1,
+      "time": "1小时前",
+      "category": [
+        "资金安全",
+        "企业风控",
+        "司法冻结"
+      ],
+      "score": 82,
+      "comment": "一边被划走，一边被冻住",
+      "reason": "标题里同时出现“非法划转”和“保护性冻结”，说明资金先遭外部异常流转，随后账户又被司法/风控措施锁住，企业资金链处境很被动。更荒谬的是，1亿元出事，9亿元又被冻，数字越看越像一场财务急救现场。",
+      "dimensions": {
+        "反常识": 88,
+        "黑色幽默": 62,
+        "系统性离谱": 79,
+        "传播戏剧性": 71,
+        "赛博浓度": 18
+      },
+      "url": "https://www.36kr.com/newsflashes/3741948416753669",
+      "scoring_mode": "cache"
+    },
+    {
+      "id": "rss-4-5paw5LiA",
+      "title": "新一轮恐同情绪的惊人原因",
+      "source": "Google News World",
+      "sources": [
+        "Google News World"
+      ],
+      "source_count": 1,
+      "time": "19:00",
+      "category": [
+        "标题党",
+        "议题失焦",
+        "情绪动员"
+      ],
+      "score": 82,
+      "comment": "惊人原因，先把原因说清",
+      "reason": "标题先抛出“惊人原因”，却不提供任何具体信息，像是在用悬念替代事实。讨论本应聚焦议题本身，却被包装成情绪引流，离谱在于先制造波动，再补内容。",
+      "dimensions": {
+        "反常识": 78,
+        "黑色幽默": 24,
+        "系统性离谱": 69,
+        "传播戏剧性": 88,
+        "赛博浓度": 41
+      },
+      "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTE96bUZVcFV4Z2doc2ZfUnhDRlJZNkdFSzd1ZmRtSzZQcTVKa281QVdnR2c5WWliUTZSaTUzcExSX2NSRDh6bHFGcVZsNHB2cUs4UUQwYjRGalIwS19ZUlNyblJSeWk1ekpXMGRBM0FkTHlSVlRRYW1iNQ?oc=5",
+      "scoring_mode": "cache"
+    },
+    {
+      "id": "weibo-0-5aWU6LeR",
+      "title": "奔跑吧",
+      "source": "微博热搜",
+      "sources": [
+        "微博热搜"
+      ],
+      "source_count": 1,
+      "time": "热度 1074893",
+      "category": [
+        "标题信息不足",
+        "热搜语境悬空",
+        "娱乐化传播"
+      ],
+      "score": 78,
+      "comment": "题目像命令，新闻像缺席",
+      "reason": "标题只有“奔跑吧”，缺少具体事件、人物和动作，无法判断所指内容，却直接占据热搜位。信息空到只剩传播本身，荒谬感主要来自这种“人人都看见，没人知道在看什么”的结构。",
+      "dimensions": {
+        "反常识": 72,
+        "黑色幽默": 40,
+        "系统性离谱": 55,
+        "传播戏剧性": 90,
+        "赛博浓度": 84
+      },
+      "url": "https://s.weibo.com/weibo?q=%E5%A5%94%E8%B7%91%E5%90%A7",
+      "scoring_mode": "cache"
+    },
+    {
+      "id": "weibo-1-NjPlsoHl",
+      "title": "63岁女子脑出血偏瘫2个月后收获奇迹",
+      "source": "微博热搜",
+      "sources": [
+        "微博热搜"
+      ],
+      "source_count": 1,
+      "time": "热度 779956",
+      "category": [
+        "医学叙事夸张",
+        "励志标题包装",
+        "平台热搜传播"
+      ],
+      "score": 78,
+      "comment": "奇迹一词，先把病情抬高了",
+      "reason": "标题把“脑出血偏瘫”后的恢复直接包装成“奇迹”，情绪先行，信息后置。来源又是微博热搜，这种叙事很容易把个案恢复写成可复制的神话。",
+      "dimensions": {
+        "反常识": 62,
+        "黑色幽默": 55,
+        "系统性离谱": 68,
+        "传播戏剧性": 86,
+        "赛博浓度": 72
+      },
+      "url": "https://s.weibo.com/weibo?q=63%E5%B2%81%E5%A5%B3%E5%AD%90%E8%84%91%E5%87%BA%E8%A1%80%E5%81%8F%E7%98%AB2%E4%B8%AA%E6%9C%88%E5%90%8E%E6%94%B6%E8%8E%B7%E5%A5%87%E8%BF%B9",
+      "scoring_mode": "cache"
+    },
+    {
+      "id": "ithome-0-5pud54m5",
+      "title": "曝特斯拉马斯克曾邀请扎克伯格竞购 OpenAI 知识产权",
+      "source": "IT之家",
+      "sources": [
+        "IT之家"
+      ],
+      "source_count": 1,
+      "time": "11:02",
+      "category": [
+        "科技资本博弈",
+        "AI公司所有权争议",
+        "高管对决"
+      ],
+      "score": 78,
+      "comment": "AI宇宙又在抢地盘",
+      "reason": "标题里是马斯克拉着扎克伯格去竞购 OpenAI 知识产权，已经不是单纯的商业新闻，更像科技巨头在公开改写AI版图。把“知识产权”拿到这种阵容里谈，本身就带着强烈的资本戏剧感。",
+      "dimensions": {
+        "反常识": 84,
+        "黑色幽默": 62,
+        "系统性离谱": 79,
+        "传播戏剧性": 88,
+        "赛博浓度": 95
+      },
+      "url": "https://www.ithome.com/0/933/567.htm",
+      "scoring_mode": "cache"
+    }
+  ],
+  "saved_at": "2026-03-28T03:13:36.841Z",
+  "share_image": "/share/2026-03-28.svg"
+}
